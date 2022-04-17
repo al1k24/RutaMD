@@ -9,18 +9,38 @@
 /* Begin PBXBuildFile section */
 		0AE2391194082A89EE1AE3A4 /* Pods_RutaMD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5463FF781845AAC005FB7BEA /* Pods_RutaMD.framework */; };
 		1848CC40279C592A00D1E91A /* RutaMDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848CC3F279C592A00D1E91A /* RutaMDApp.swift */; };
-		1848CC42279C592A00D1E91A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848CC41279C592A00D1E91A /* ContentView.swift */; };
 		1848CC44279C592B00D1E91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC43279C592B00D1E91A /* Assets.xcassets */; };
 		1848CC47279C592B00D1E91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC46279C592B00D1E91A /* Preview Assets.xcassets */; };
+		18D2E5CC280C5BC800E7D474 /* HomeOffsetModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5CB280C5BC800E7D474 /* HomeOffsetModifier.swift */; };
+		18D2E5CE280C632000E7D474 /* HomePinnedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5CD280C632000E7D474 /* HomePinnedHeaderView.swift */; };
+		18D2E5D1280C659B00E7D474 /* RouteScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5D0280C659B00E7D474 /* RouteScheduleView.swift */; };
+		18D2E5D5280C681D00E7D474 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5D4280C681D00E7D474 /* TestView.swift */; };
+		18D2E5D8280C6A8500E7D474 /* HideNavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5D7280C6A8500E7D474 /* HideNavigationBarModifier.swift */; };
+		18D2E5DA280C6B3D00E7D474 /* TabItemModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5D9280C6B3D00E7D474 /* TabItemModifier.swift */; };
+		18D2E5DC280C6F8800E7D474 /* UIView+Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2E5DB280C6F8800E7D474 /* UIView+Transform.swift */; };
+		18E32C61279D935300273A04 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C60279D935300273A04 /* HomeView.swift */; };
+		18E32C64279D939200273A04 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C63279D939200273A04 /* HomeHeaderView.swift */; };
+		18E32C67279D93EB00273A04 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C66279D93EB00273A04 /* UIView+.swift */; };
+		18E32C71279D990E00273A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C70279D990E00273A04 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1848CC3C279C592A00D1E91A /* RutaMD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RutaMD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1848CC3F279C592A00D1E91A /* RutaMDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaMDApp.swift; sourceTree = "<group>"; };
-		1848CC41279C592A00D1E91A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1848CC43279C592B00D1E91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1848CC46279C592B00D1E91A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1848CC4D279C593D00D1E91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		18D2E5CB280C5BC800E7D474 /* HomeOffsetModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOffsetModifier.swift; sourceTree = "<group>"; };
+		18D2E5CD280C632000E7D474 /* HomePinnedHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePinnedHeaderView.swift; sourceTree = "<group>"; };
+		18D2E5D0280C659B00E7D474 /* RouteScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleView.swift; sourceTree = "<group>"; };
+		18D2E5D4280C681D00E7D474 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		18D2E5D7280C6A8500E7D474 /* HideNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideNavigationBarModifier.swift; sourceTree = "<group>"; };
+		18D2E5D9280C6B3D00E7D474 /* TabItemModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabItemModifier.swift; sourceTree = "<group>"; };
+		18D2E5DB280C6F8800E7D474 /* UIView+Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Transform.swift"; sourceTree = "<group>"; };
+		18E32C60279D935300273A04 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		18E32C63279D939200273A04 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		18E32C66279D93EB00273A04 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		18E32C70279D990E00273A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		420A04F5AE067E0032513363 /* Pods-RutaMD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RutaMD.debug.xcconfig"; path = "Target Support Files/Pods-RutaMD/Pods-RutaMD.debug.xcconfig"; sourceTree = "<group>"; };
 		5463FF781845AAC005FB7BEA /* Pods_RutaMD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RutaMD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDAEF7D04BF3C3E1087313 /* Pods-RutaMD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RutaMD.release.xcconfig"; path = "Target Support Files/Pods-RutaMD/Pods-RutaMD.release.xcconfig"; sourceTree = "<group>"; };
@@ -59,9 +79,10 @@
 		1848CC3E279C592A00D1E91A /* RutaMD */ = {
 			isa = PBXGroup;
 			children = (
-				1848CC4D279C593D00D1E91A /* Info.plist */,
 				1848CC3F279C592A00D1E91A /* RutaMDApp.swift */,
-				1848CC41279C592A00D1E91A /* ContentView.swift */,
+				18E32C5D279D92A600273A04 /* View */,
+				18D2E5C9280C5B9600E7D474 /* Utils */,
+				1848CC4D279C593D00D1E91A /* Info.plist */,
 				1848CC43279C592B00D1E91A /* Assets.xcassets */,
 				1848CC45279C592B00D1E91A /* Preview Content */,
 			);
@@ -74,6 +95,63 @@
 				1848CC46279C592B00D1E91A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		18D2E5C9280C5B9600E7D474 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				18E32C65279D93BB00273A04 /* Extension */,
+				18D2E5CA280C5BA900E7D474 /* ViewModifier */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		18D2E5CA280C5BA900E7D474 /* ViewModifier */ = {
+			isa = PBXGroup;
+			children = (
+				18D2E5CB280C5BC800E7D474 /* HomeOffsetModifier.swift */,
+				18D2E5D7280C6A8500E7D474 /* HideNavigationBarModifier.swift */,
+				18D2E5D9280C6B3D00E7D474 /* TabItemModifier.swift */,
+			);
+			path = ViewModifier;
+			sourceTree = "<group>";
+		};
+		18D2E5CF280C656E00E7D474 /* RouteSchedule */ = {
+			isa = PBXGroup;
+			children = (
+				18D2E5D0280C659B00E7D474 /* RouteScheduleView.swift */,
+			);
+			path = RouteSchedule;
+			sourceTree = "<group>";
+		};
+		18E32C5D279D92A600273A04 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18E32C70279D990E00273A04 /* ContentView.swift */,
+				18E32C62279D936500273A04 /* Home */,
+				18D2E5CF280C656E00E7D474 /* RouteSchedule */,
+				18D2E5D4280C681D00E7D474 /* TestView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18E32C62279D936500273A04 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				18E32C60279D935300273A04 /* HomeView.swift */,
+				18E32C63279D939200273A04 /* HomeHeaderView.swift */,
+				18D2E5CD280C632000E7D474 /* HomePinnedHeaderView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		18E32C65279D93BB00273A04 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18E32C66279D93EB00273A04 /* UIView+.swift */,
+				18D2E5DB280C6F8800E7D474 /* UIView+Transform.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		8C39724C93979241851A47AE /* Frameworks */ = {
@@ -90,7 +168,6 @@
 				420A04F5AE067E0032513363 /* Pods-RutaMD.debug.xcconfig */,
 				B0DDAEF7D04BF3C3E1087313 /* Pods-RutaMD.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -208,8 +285,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1848CC42279C592A00D1E91A /* ContentView.swift in Sources */,
+				18D2E5D1280C659B00E7D474 /* RouteScheduleView.swift in Sources */,
+				18D2E5DC280C6F8800E7D474 /* UIView+Transform.swift in Sources */,
+				18E32C67279D93EB00273A04 /* UIView+.swift in Sources */,
+				18E32C64279D939200273A04 /* HomeHeaderView.swift in Sources */,
+				18D2E5D8280C6A8500E7D474 /* HideNavigationBarModifier.swift in Sources */,
+				18D2E5DA280C6B3D00E7D474 /* TabItemModifier.swift in Sources */,
+				18E32C71279D990E00273A04 /* ContentView.swift in Sources */,
 				1848CC40279C592A00D1E91A /* RutaMDApp.swift in Sources */,
+				18D2E5CE280C632000E7D474 /* HomePinnedHeaderView.swift in Sources */,
+				18D2E5CC280C5BC800E7D474 /* HomeOffsetModifier.swift in Sources */,
+				18D2E5D5280C681D00E7D474 /* TestView.swift in Sources */,
+				18E32C61279D935300273A04 /* HomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,9 +432,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RutaMD/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ruta MD";
+				INFOPLIST_KEY_CFBundleDisplayName = RutaMD;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -376,9 +464,10 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = RutaMD/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Ruta MD";
+				INFOPLIST_KEY_CFBundleDisplayName = RutaMD;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
