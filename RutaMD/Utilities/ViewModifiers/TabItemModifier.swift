@@ -12,14 +12,12 @@ struct TabItemModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .tabItem {
-                Label(tab.title, systemImage: tab.icon)
-            }
+            .tag(tab)
     }
 }
 
 extension View {
-    func tabItem(tab: TabType) -> some View {
+    func tab(_ tab: TabType) -> some View {
         self.modifier(TabItemModifier(tab: tab))
     }
 }

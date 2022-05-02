@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
-    private var headerImageHeight: CGFloat {
-        return getRect().height * 0.4
-    }
+    init() { print("[\(Date())] \(Self.self): \(#function)") }
     
     var body: some View {
         GeometryReader { proxy in
@@ -24,12 +22,10 @@ struct HomeHeaderView: View {
                 .frame(width: size.width, height: height > 0 ? height : 0, alignment: .top)
                 .overlay(content: {
                     ZStack(alignment: .top) {
-                        
-                        // Dimming Out the text Content
                         LinearGradient(colors: [
                             .clear,
-                            .black.opacity(0.8)
-                        ], startPoint: .bottom, endPoint: .top)
+                            Color.Custom.background
+                        ], startPoint: .center, endPoint: .bottom)
                         
                         Text("Orarul rutelor din \nMoldova")
                             .foregroundColor(.white)
@@ -38,18 +34,9 @@ struct HomeHeaderView: View {
                             .frame(height: 200, alignment: .center)
                     }
                 })
-                .cornerRadius(15)
                 .offset(y: -minY)
         }
-        .frame(height: headerImageHeight)
-    }
-    
-    @ViewBuilder
-    private func postHeader() -> some View {
-        HStack(alignment: .top, spacing: 8) {
-                Text("asdasdsa")
-                    .foregroundColor(.red)
-        }
+        .frame(height: getRect().height * 0.4)
     }
 }
 

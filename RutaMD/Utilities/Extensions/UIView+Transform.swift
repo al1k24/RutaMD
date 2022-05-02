@@ -8,7 +8,6 @@
 import SwiftUI
 
 extension View {
-    
     @ViewBuilder
     func `if`<Transform: View>(_ condition: Bool,
                                transform: (Self) -> Transform) -> some View {
