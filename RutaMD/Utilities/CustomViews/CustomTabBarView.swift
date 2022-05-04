@@ -12,13 +12,9 @@ struct CustomTabBarView: View {
     
     var body: some View {
         HStack(spacing: 0) {
-            ForEach(TabType.allCases,id: \.rawValue) { tab in
-                Button {
-//                    withAnimation(.easeInOut) {
-                        currentTab = tab
-//                    }
-                } label: {
-                    Image(systemName: tab.icon)
+            ForEach(TabType.allCases, id: \.rawValue) { tab in
+                Button(action: { currentTab = tab }) {
+                    Image(systemName: tab.getIcon(isFilled: currentTab == tab))
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -30,9 +26,8 @@ struct CustomTabBarView: View {
         }
         .frame(maxWidth: .infinity)
         .frame(height: 30)
-        .padding(.bottom,10)
-        .padding([.horizontal,.top])
-//        .background(Color.red)
+        .padding(.bottom, 10)
+        .padding([.horizontal, .top])
     }
 }
 

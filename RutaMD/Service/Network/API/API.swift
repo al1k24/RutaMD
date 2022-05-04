@@ -8,12 +8,3 @@
 import Foundation
 
 enum API {}
-
-extension API {
-    static func getRequiredParams() -> [String: String] {
-        return [
-            "org": "all",
-            "api_type": "avibus",
-        ]
-    }
-}

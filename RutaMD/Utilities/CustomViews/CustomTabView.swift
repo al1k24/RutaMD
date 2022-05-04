@@ -8,20 +8,18 @@
 import SwiftUI
 
 enum TabType: String, CaseIterable {
+    case map
     case home
-    case test
+    case settings
     
-    var title: String {
+    func getIcon(isFilled: Bool) -> String {
         switch self {
-        case .home: return "calendar"
-        case .test: return "signature"
-        }
-    }
-    
-    var icon: String {
-        switch self {
-        case .home: return "calendar"
-        case .test: return "text.justify"
+        case .home:
+            return isFilled ? "bus" : "bus.fill"
+        case .map:
+            return isFilled ? "map.fill" : "map"
+        case .settings:
+            return isFilled ? "gearshape.fill" : "gearshape"
         }
     }
 }
@@ -43,10 +41,13 @@ struct CustomTabView<Content: View>: View {
                 self.content
             }
             
+            Divider()
+                .background(Color.hexFFFFFF_393F4D)
+            
             // MARK: Custom Tab Bar
             CustomTabBarView(currentTab: $currentTab)
         }
-        .background(Color.hexFFFFFF_393F4D)
+        .background(Color.Theme.background)
     }
 }
 

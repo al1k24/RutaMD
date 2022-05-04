@@ -7,36 +7,34 @@
 
 import SwiftUI
 
-struct SelectView<Source: LoadableObject, Entity: SelectIdentifiable>: View {
-    @Environment(\.presentationMode) private var presentationMode
+struct SelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: View {
+    @Environment(\.dismiss) private var dismiss
     
-    @ObservedObject private var source: Source
+    @ObservedObject private var viewModel: ViewModel
     @Binding private var onSelect: Entity?
     
     private let title: String
     
-    init(source: Source, onSelect: Binding<Entity?>, title: String) {
-        print("[\(Date().formatted(date: .omitted, time: .shortened))] \(Self.self): \(#function)")
+    init(viewModel: ViewModel, onSelect: Binding<Entity?>, title: String) {
+        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
         self.title = title
-        self.source = source
+        self.viewModel = viewModel
         self._onSelect = onSelect
     }
     
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            HStack(spacing: 0) {
-                Text(title)
-            }
-            .frame(height: 56)
+            Text(title)
+                .frame(height: 44)
             
-            AsyncContentView(source: source) { output in
+            AsyncContentView(viewModel: viewModel) { output in
                 let entities = output as? [Entity] ?? []
                 
                 List(entities, id: \.id) { entity in
                     Button {
                         onSelect = entity
-                        presentationMode.wrappedValue.dismiss()
+                        dismiss()
                     } label: {
                         Text("\(entity.name) -> id: \(entity.id)")
                     }
@@ -44,6 +42,7 @@ struct SelectView<Source: LoadableObject, Entity: SelectIdentifiable>: View {
             }
             .frame(maxHeight: .infinity, alignment: .leading)
         }
+        .background(Color.Theme.background)
     }
 }
 

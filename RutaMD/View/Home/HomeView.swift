@@ -12,7 +12,7 @@ struct HomeView: View {
     
     @State private var headerOffsets: (CGFloat, CGFloat) = (0, 0)
     
-    init() { print("[\(Date())] \(Self.self): \(#function)") }
+    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -34,7 +34,7 @@ struct HomeView: View {
         }
         .coordinateSpace(name: "SCROLL")
         .ignoresSafeArea(.container, edges: .vertical)
-        .background(Color.Custom.background)
+        .background(Color.Theme.background)
         .environmentObject(routeViewModel)
     }
 }

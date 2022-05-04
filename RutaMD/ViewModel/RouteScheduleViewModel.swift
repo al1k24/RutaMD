@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+// TODO: После деините убивать все активные запросы
+
 final class RouteScheduleViewModel: LoadableObject {
     typealias Output = [RouteModel]
     
@@ -14,15 +16,19 @@ final class RouteScheduleViewModel: LoadableObject {
     
     private let startPoint: StationModel?
     private let station: StationModel?
-    private let date: DateModel?
+    private var date: DateModel?
     
-    private let networkService: NetworkServiceProtocol
+    private var networkService: NetworkServiceProtocol
     private let htmlContentService: HTMLContentServiceProtocol
+    
+    public var scrollToDate: DateModel?
     
     init(startPoint: StationModel?, station: StationModel?, date: DateModel?) {
         self.startPoint = startPoint
         self.station = station
         self.date = date
+        
+        self.scrollToDate = date
         
         self.networkService = NetworkService()
         self.htmlContentService = HTMLContentService()
@@ -63,4 +69,31 @@ final class RouteScheduleViewModel: LoadableObject {
             }
         }
     }
+    
+    func select(_ model: DateModel) {
+        if self.date?.id == model.id {
+            return
+        }
+        
+        self.date = model
+        load()
+    }
+    
+    func getSelectedDateValue() -> String {
+        return (date?.date ?? Date()).toDisplay()
+    }
+    
+    func getSelectedDate() -> DateModel? {
+        return date
+    }
+    
+    func isToday(_ model: DateModel) -> Bool {
+        guard let currentDate = date?.date else {
+            return false
+        }
+        
+        return Calendar.current.isDate(currentDate, inSameDayAs: model.date)
+    }
+    
+    
 }

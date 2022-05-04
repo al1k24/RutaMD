@@ -33,4 +33,11 @@ extension Date {
     func toDisplay() -> String {
         return displayDateFormatter.string(from: self)
     }
+    
+    func toDisplay(format: String) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        
+        return formatter.string(from: self)
+    }
 }

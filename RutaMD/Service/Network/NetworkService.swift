@@ -16,57 +16,80 @@ protocol NetworkServiceProtocol {
     func request<T: Serialisable>(route: Route, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
 
-struct NetworkService: NetworkServiceProtocol {
+final class NetworkService: NetworkServiceProtocol {
+    private var dataRequest: DataRequest?
+    
+    init() {
+        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+    }
+    
+    deinit {
+        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+        
+        dataRequest?.cancel()
+        dataRequest = nil
+    }
+    
     func request(route: Route, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+        dataRequest?.cancel()
+        
         guard let url = URL(string: BASE_URL)?.appendingPathComponent(route.path) else {
+            self.dataRequest = nil
+            completion(.failure(.url))
             return
         }
         
-        AF.request(url, method: route.method, parameters: route.params)
+        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+        
+        dataRequest = AF.request(url, method: route.method, parameters: route.params)
             .validate()
-            .responseData { responseData in
+            .responseData { [weak self] responseData in
                 guard let data = responseData.data else {
+                    self?.dataRequest = nil
+                    completion(.failure(.custom("Invalid data")))
                     return
                 }
                 
+                self?.dataRequest = nil
                 completion(.success(data))
             }
     }
     
     func request<T: Serialisable>(route: Route, completion: @escaping (Result<T, NetworkError>) -> Void) {
+        dataRequest?.cancel()
+        
         guard let url = URL(string: BASE_URL)?.appendingPathComponent(route.path) else {
+            self.dataRequest = nil
+            completion(.failure(.url))
             return
         }
         
-        AF.request(url, method: route.method, parameters: route.params)
+        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+        
+        dataRequest = AF.request(url, method: route.method, parameters: route.params)
             .validate()
-            .responseData { responseData in
-//                switch response {
-//                case .success(let data):
+            .responseData { [weak self] responseData in
                 guard let data = responseData.data else {
-                    
+                    self?.dataRequest = nil
+                    completion(.failure(.custom("Invalid data")))
                     return
                 }
-                    do {
-                        let json = try JSON(data: data)
-                        
-                        if let serializedObject = T(json: json) {
-//                            DispatchQueue.main.async {
-                                completion(.success(serializedObject))
-//                            }
-                        } else {
-//                            DispatchQueue.main.async {
-//                                let error = EBSError.objectSerializationIssue(className: "\(T.self)", json)
-//                                completion(.failure(E(error: error)))
-                                completion(.failure(.decoding))
-//                            }
-                        }
-                    } catch {
-//                        DispatchQueue.main.async {
-//                            let error = EBSError.jsonSerializationFailed(error)
-//                            completionHandler(.failure(E(error: error)))
-//                        }
+                
+                do {
+                    self?.dataRequest = nil
+                    
+                    let json = try JSON(data: data)
+                    
+                    if let serializedObject = T(json: json) {
+                        completion(.success(serializedObject))
+                    } else {
+                        completion(.failure(.decoding))
                     }
+                } catch {
+                    self?.dataRequest = nil
+                    
+                    completion(.failure(.custom(error.localizedDescription)))
+                }
             }
     }
 }

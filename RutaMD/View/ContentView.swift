@@ -10,13 +10,17 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         CustomTabView {
+            TestView()
+                .navigationView()
+                .tab(.map)
+            
             HomeView()
                 .navigationView()
                 .tab(.home)
             
-            TestView()
+            SettingsView()
                 .navigationView()
-                .tab(.test)
+                .tab(.settings)
         }
     }
 }

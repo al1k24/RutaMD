@@ -14,7 +14,7 @@ final class SelectStationViewModel: LoadableObject {
     @Published private(set) var state = LoadingState<Output>.idle
     
     private let startPoint: StationModel?
-    private let networkService: NetworkServiceProtocol
+    private var networkService: NetworkServiceProtocol
     
     init(startPoint: StationModel?, stations: Binding<Output>) {
         self.startPoint = startPoint

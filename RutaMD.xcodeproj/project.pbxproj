@@ -14,6 +14,15 @@
 		1848CC44279C592B00D1E91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC43279C592B00D1E91A /* Assets.xcassets */; };
 		1848CC47279C592B00D1E91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC46279C592B00D1E91A /* Preview Assets.xcassets */; };
 		18747216282027CB00A5E188 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18747215282027CB00A5E188 /* Array+.swift */; };
+		18747219282034CF00A5E188 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18747218282034CF00A5E188 /* RouteDetailView.swift */; };
+		1874721B2820350A00A5E188 /* RouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874721A2820350A00A5E188 /* RouteDetailViewModel.swift */; };
+		187472202821651900A5E188 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874721F2821651900A5E188 /* SettingsView.swift */; };
+		187472222821792800A5E188 /* RouteScheduleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472212821792800A5E188 /* RouteScheduleHeaderView.swift */; };
+		187472242822E3F500A5E188 /* RouteScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472232822E3F500A5E188 /* RouteScheduleItemView.swift */; };
+		187472262822F38D00A5E188 /* NavigationLinkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472252822F38D00A5E188 /* NavigationLinkModifier.swift */; };
+		187472282822F54900A5E188 /* ListRowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472272822F54900A5E188 /* ListRowModifier.swift */; };
+		1874722A2822F5D600A5E188 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472292822F5D600A5E188 /* LineShape.swift */; };
+		1874722C2823147700A5E188 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722B2823147700A5E188 /* SeparatorView.swift */; };
 		18901324281F271F00CBECA9 /* RouteScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */; };
 		18901326281F275E00CBECA9 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901325281F275E00CBECA9 /* RouteModel.swift */; };
 		18901329281F31DE00CBECA9 /* HTMLContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901328281F31DE00CBECA9 /* HTMLContentService.swift */; };
@@ -108,6 +117,15 @@
 		1848CC46279C592B00D1E91A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1848CC4D279C593D00D1E91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		18747215282027CB00A5E188 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
+		18747218282034CF00A5E188 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
+		1874721A2820350A00A5E188 /* RouteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewModel.swift; sourceTree = "<group>"; };
+		1874721F2821651900A5E188 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		187472212821792800A5E188 /* RouteScheduleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleHeaderView.swift; sourceTree = "<group>"; };
+		187472232822E3F500A5E188 /* RouteScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleItemView.swift; sourceTree = "<group>"; };
+		187472252822F38D00A5E188 /* NavigationLinkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkModifier.swift; sourceTree = "<group>"; };
+		187472272822F54900A5E188 /* ListRowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowModifier.swift; sourceTree = "<group>"; };
+		187472292822F5D600A5E188 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
+		1874722B2823147700A5E188 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleViewModel.swift; sourceTree = "<group>"; };
 		18901325281F275E00CBECA9 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		18901328281F31DE00CBECA9 /* HTMLContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLContentService.swift; sourceTree = "<group>"; };
@@ -250,6 +268,22 @@
 				1848CC46279C592B00D1E91A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		18747217282034AF00A5E188 /* RouteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				18747218282034CF00A5E188 /* RouteDetailView.swift */,
+			);
+			path = RouteDetail;
+			sourceTree = "<group>";
+		};
+		1874721C2821650200A5E188 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1874721F2821651900A5E188 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		18901327281F31C500CBECA9 /* HTML */ = {
@@ -395,6 +429,8 @@
 			children = (
 				18CCB8EA281E94AD00EE8918 /* CustomTabView.swift */,
 				18CCB8EC281E964600EE8918 /* CustomTabBarView.swift */,
+				187472292822F5D600A5E188 /* LineShape.swift */,
+				1874722B2823147700A5E188 /* SeparatorView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -419,6 +455,8 @@
 				18D2E5CB280C5BC800E7D474 /* HomeOffsetModifier.swift */,
 				18D2E5D9280C6B3D00E7D474 /* TabItemModifier.swift */,
 				18CCB8F3281EADCD00EE8918 /* NavigationViewModifier.swift */,
+				187472252822F38D00A5E188 /* NavigationLinkModifier.swift */,
+				187472272822F54900A5E188 /* ListRowModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -427,6 +465,8 @@
 			isa = PBXGroup;
 			children = (
 				18D2E5D0280C659B00E7D474 /* RouteScheduleView.swift */,
+				187472212821792800A5E188 /* RouteScheduleHeaderView.swift */,
+				187472232822E3F500A5E188 /* RouteScheduleItemView.swift */,
 			);
 			path = RouteSchedule;
 			sourceTree = "<group>";
@@ -435,6 +475,7 @@
 			isa = PBXGroup;
 			children = (
 				18D476F5280F3BAA00BB08F8 /* RouteViewModel.swift */,
+				1874721A2820350A00A5E188 /* RouteDetailViewModel.swift */,
 				18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */,
 				1823AAAA28109C4F00B5A170 /* SelectStationViewModel.swift */,
 				18CCB8FA281EDF7900EE8918 /* SelectStartPointViewModel.swift */,
@@ -519,7 +560,9 @@
 				1823AAA82810996E00B5A170 /* SelectView.swift */,
 				18E32C62279D936500273A04 /* Home */,
 				18D2E5CF280C656E00E7D474 /* RouteSchedule */,
+				18747217282034AF00A5E188 /* RouteDetail */,
 				18D2E5D4280C681D00E7D474 /* TestView.swift */,
+				1874721C2821650200A5E188 /* Settings */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -696,14 +739,17 @@
 				18901383281FFD9700CBECA9 /* ElementParser.swift in Sources */,
 				18D476FD280F40C500BB08F8 /* LoadableObject.swift in Sources */,
 				18D476F0280F363600BB08F8 /* Serialisable.swift in Sources */,
+				187472202821651900A5E188 /* SettingsView.swift in Sources */,
 				1890137A281FFD9700CBECA9 /* TextNode.swift in Sources */,
 				1890136A281FFD9700CBECA9 /* IdStringSelectorBuilder.swift in Sources */,
 				18901370281FFD9700CBECA9 /* CommentParser.swift in Sources */,
 				18901376281FFD9700CBECA9 /* AttributeParser.swift in Sources */,
+				1874722C2823147700A5E188 /* SeparatorView.swift in Sources */,
 				1890137D281FFD9700CBECA9 /* Node.swift in Sources */,
 				18D476FF280F40F400BB08F8 /* AsyncContentView.swift in Sources */,
 				18901368281FFD9700CBECA9 /* IntSelector.swift in Sources */,
 				18CCB8F0281E9D3A00EE8918 /* LazyView.swift in Sources */,
+				187472222821792800A5E188 /* RouteScheduleHeaderView.swift in Sources */,
 				1890137F281FFD9700CBECA9 /* Attribute.swift in Sources */,
 				1890137E281FFD9700CBECA9 /* Tag.swift in Sources */,
 				18CCB8FB281EDF7900EE8918 /* SelectStartPointViewModel.swift in Sources */,
@@ -730,8 +776,10 @@
 				18901365281FFD9700CBECA9 /* ElementSelector.swift in Sources */,
 				1890137C281FFD9700CBECA9 /* NodeType.swift in Sources */,
 				18901387281FFD9700CBECA9 /* StringExtensions.swift in Sources */,
+				1874721B2820350A00A5E188 /* RouteDetailViewModel.swift in Sources */,
 				18D4770F280F50FD00BB08F8 /* APIRoute.swift in Sources */,
 				1890137B281FFD9700CBECA9 /* Element.swift in Sources */,
+				187472262822F38D00A5E188 /* NavigationLinkModifier.swift in Sources */,
 				18901372281FFD9700CBECA9 /* LookaheadValidator.swift in Sources */,
 				1823AAAB28109C4F00B5A170 /* SelectStationViewModel.swift in Sources */,
 				18901373281FFD9700CBECA9 /* ParseError.swift in Sources */,
@@ -756,14 +804,18 @@
 				18D2E5CE280C632000E7D474 /* HomePinnedHeaderView.swift in Sources */,
 				18D47714280F515400BB08F8 /* API.swift in Sources */,
 				18D2E5CC280C5BC800E7D474 /* HomeOffsetModifier.swift in Sources */,
+				187472242822E3F500A5E188 /* RouteScheduleItemView.swift in Sources */,
 				18D2E5D5280C681D00E7D474 /* TestView.swift in Sources */,
 				18D47711280F512500BB08F8 /* Route.swift in Sources */,
+				18747219282034CF00A5E188 /* RouteDetailView.swift in Sources */,
 				18901329281F31DE00CBECA9 /* HTMLContentService.swift in Sources */,
 				18901366281FFD9700CBECA9 /* CDataSelector.swift in Sources */,
 				18E32C61279D935300273A04 /* HomeView.swift in Sources */,
 				18901384281FFD9700CBECA9 /* HTMLParser.swift in Sources */,
+				1874722A2822F5D600A5E188 /* LineShape.swift in Sources */,
 				1890138E282007F300CBECA9 /* String+.swift in Sources */,
 				18CCB903281F1A0000EE8918 /* DateModel.swift in Sources */,
+				187472282822F54900A5E188 /* ListRowModifier.swift in Sources */,
 				18D476F6280F3BAA00BB08F8 /* RouteViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

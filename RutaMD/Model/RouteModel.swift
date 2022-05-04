@@ -10,6 +10,7 @@ import SwiftUI
 struct RouteModel {
     let id: String
     let name: String
+    let info: Info
     let date: Date
     let time: String
     let distance: String
@@ -19,6 +20,11 @@ struct RouteModel {
 }
 
 extension RouteModel {
+    struct Info {
+        let startPoint: String
+        let destination: String
+    }
+    
     struct Components {
         let route: String
         let routeCode: String

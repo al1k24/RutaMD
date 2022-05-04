@@ -55,6 +55,10 @@ struct HTMLContentService: HTMLContentServiceProtocol {
             return nil
         }
         
+        guard let info = parseRouteInfo(from: name) else {
+            return nil
+        }
+        
         guard let date = parseRouteDate(from: element) else {
             return nil
         }
@@ -81,6 +85,8 @@ struct HTMLContentService: HTMLContentServiceProtocol {
         
         return .init(id: id,
                      name: name,
+                     info: .init(startPoint: info.startPoint,
+                                 destination: info.destination),
                      date: date,
                      time: time,
                      distance: distance,
@@ -100,12 +106,31 @@ struct HTMLContentService: HTMLContentServiceProtocol {
         return element.childElements[safe: 1]?.childElements[safe: 0]?.textNodes.first?.text
     }
     
+    private func parseRouteInfo(from name: String) -> (startPoint: String, destination: String)? {
+        let infoComponents: [String] = name.components(separatedBy: "->")
+        
+        guard infoComponents.count > 1 else {
+            return nil
+        }
+        
+        guard let startPoint = infoComponents[safe: 0], !startPoint.isEmpty else {
+            return nil
+        }
+        
+        guard let destination = infoComponents[safe: 1], !destination.isEmpty else {
+            return nil
+        }
+        
+        return (startPoint: startPoint, destination: destination)
+    }
+    
     private func parseRouteDate(from element: Element) -> Date? {
         return element.childElements[safe: 2]?.textNodes.first?.text.toDate()
     }
     
     private func parseRouteTime(from element: Element) -> String? {
         return element.childElements[safe: 3]?.textNodes.first?.text
+            .replacingOccurrences(of: ".", with: ":")
     }
     
     private func parseRouteDistance(from element: Element) -> String? {

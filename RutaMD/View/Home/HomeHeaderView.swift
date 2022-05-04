@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
-    init() { print("[\(Date())] \(Self.self): \(#function)") }
+    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
     
     var body: some View {
         GeometryReader { proxy in
@@ -24,14 +24,15 @@ struct HomeHeaderView: View {
                     ZStack(alignment: .top) {
                         LinearGradient(colors: [
                             .clear,
-                            Color.Custom.background
+                            Color.Theme.background
                         ], startPoint: .center, endPoint: .bottom)
                         
                         Text("Orarul rutelor din \nMoldova")
-                            .foregroundColor(.white)
+                            .foregroundColor(Color.hexFFFFFF)
                             .font(.title.bold())
                             .multilineTextAlignment(.center)
                             .frame(height: 200, alignment: .center)
+                        // TODO: Add shadow
                     }
                 })
                 .offset(y: -minY)

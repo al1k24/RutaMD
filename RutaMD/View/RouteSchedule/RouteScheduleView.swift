@@ -8,31 +8,38 @@
 import SwiftUI
 
 struct RouteScheduleView: View {
-    @ObservedObject private var source: RouteScheduleViewModel
+    @ObservedObject private var viewModel: RouteScheduleViewModel
     
-    init(source: RouteScheduleViewModel) {
-        print("[\(Date())] \(Self.self): \(#function)")
+    @State private var selectedRoute: RouteModel?
+    
+    init(viewModel: RouteScheduleViewModel) {
+        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
-        self.source = source
+        self.viewModel = viewModel
     }
     
     var body: some View {
-        AsyncContentView(source: source) { output in
-            let routes = output as [RouteModel]
+        VStack(alignment: .leading, spacing: 0) {
+            RouteScheduleHeaderView(viewModel: viewModel)
             
-            List(routes, id: \.id) { entity in
-                Button {
-//                    onSelect = entity
-//                    presentationMode.wrappedValue.dismiss()
-                } label: {
-                    Text("\(entity.name) -> id: \(entity.id)")
+            AsyncContentView(viewModel: viewModel) { (routes: [RouteModel]) in
+                List(routes, id: \.id) { entity in
+                    RouteScheduleItemView(routeModel: entity)
+                    .navigationLink({ destinationView(route: entity) })
+                    .listRow()
                 }
-                .listRowSeparator(.hidden)
-                .listRowBackground(Color.Custom.background)
+                .listStyle(.plain)
+                .background(Color.Theme.background)
             }
-            .listStyle(.plain)
-            .background(Color.Custom.background)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
+        .navigationBarTitle("Rutele", displayMode: .inline)
+    }
+    
+    @ViewBuilder
+    private func destinationView(route: RouteModel) -> some View {
+        LazyView(RouteDetailView(route: route))
+//            .environmentObject(routeViewModel)
     }
 }
 

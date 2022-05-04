@@ -7,22 +7,23 @@
 
 import SwiftUI
 
-struct AsyncContentView<Source: LoadableObject, Content: View>: View {
-    @ObservedObject private var source: Source
+struct AsyncContentView<ViewModel: LoadableObject, Content: View>: View {
+    @ObservedObject private var viewModel: ViewModel
     
-    private var content: (Source.Output) -> Content
+    private var content: (ViewModel.Output) -> Content
 
-    init(source: Source, @ViewBuilder content: @escaping (Source.Output) -> Content) {
-        self.source = source
+    init(viewModel: ViewModel, @ViewBuilder content: @escaping (ViewModel.Output) -> Content) {
+        self.viewModel = viewModel
         self.content = content
     }
     
     var body: some View {
-        switch source.state {
+        switch viewModel.state {
         case .idle:
-            Color.clear.onAppear(perform: source.load)
+            Color.clear.onAppear(perform: viewModel.load)
         case .loading:
             ProgressView()
+            // TODO: Add shimmer effect. Отображать в зависимости от типа страницы
         case .failed(let error):
             Text("* Error: \(error.errorDescription)")
 //            ErrorView(error: error, retryHandler: source.load)

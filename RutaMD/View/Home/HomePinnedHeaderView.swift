@@ -22,19 +22,21 @@ struct HomePinnedHeaderView: View {
     
     @State private var activeSheet: ActiveSheet?
     
-    init() { print("[\(Date())] \(Self.self): \(#function)") }
+    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 8) {
-                buttonView(title: routeViewModel.startPoint?.name, placeholder: "De unde", icon: "circle.circle") {
+                buttonView(title: routeViewModel.startPoint?.name ?? "De unde",
+                           icon: routeViewModel.startPoint == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = .selectStartPoint
                 }
                 
                 Divider()
                     .background(Color.hexF2F2F2_393F4D)
                 
-                buttonView(title: routeViewModel.station?.name, placeholder: "Direcție", icon: "circle.circle") {
+                buttonView(title: routeViewModel.station?.name ?? "Direcție",
+                           icon: routeViewModel.station == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = .selectStation
                 }
                 .disabled(routeViewModel.startPoint == nil)
@@ -42,7 +44,8 @@ struct HomePinnedHeaderView: View {
                 Divider()
                     .background(Color.hexF2F2F2_393F4D)
                 
-                buttonView(title: routeViewModel.date?.name, placeholder: "Data", icon: "calendar") {
+                buttonView(title: routeViewModel.date?.name ?? "Data",
+                           icon: routeViewModel.date == nil ? "calendar.badge.plus" : "calendar") {
                     activeSheet = .selectDate
                 }
                 .disabled(routeViewModel.startPoint == nil || routeViewModel.station == nil)
@@ -50,17 +53,17 @@ struct HomePinnedHeaderView: View {
             .padding(.top, 16)
             .padding(.horizontal)
             
-            NavigationLink(destination: { LazyView(RouteScheduleView(source: .init(startPoint: routeViewModel.startPoint, station: routeViewModel.station, date: routeViewModel.date))) }) {
+            NavigationLink(destination: { destinationView() }) {
                 Text("GĂSEȘTE RUTE")
                     .fontWeight(.semibold)
-                    .foregroundColor(.white)
+                    .foregroundColor(Color.hexFFFFFF)
                     .frame(maxWidth: .infinity, idealHeight: 56, alignment: .center)
             }
             .background(Color.hex3C71FF)
             .navigationBarTitle("")
             .disabled(routeViewModel.startPoint == nil || routeViewModel.station == nil || routeViewModel.date == nil)
         }
-        .background(Color.Custom.background)
+        .background(Color.Theme.background)
         .cornerRadius(14)
         .overlay(
             RoundedRectangle(cornerRadius: 14)
@@ -74,16 +77,16 @@ struct HomePinnedHeaderView: View {
     private func handleActionSheet(_ item: ActiveSheet) -> some View {
         switch item {
         case .selectStartPoint:
-            SelectView(source: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
+            SelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
                               onSelect: $routeViewModel.startPoint,
                               title: "Alege locatia")
         case .selectStation:
-            SelectView(source: SelectStationViewModel(startPoint: routeViewModel.startPoint,
+            SelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
                                                              stations: $routeViewModel.stations),
                               onSelect: $routeViewModel.station,
                               title: "Alege directia")
         case .selectDate:
-            SelectView(source: SelectDateViewModel(startPoint: routeViewModel.startPoint,
+            SelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
                                                    station: routeViewModel.station,
                                                    dates: $routeViewModel.dates),
                        onSelect: $routeViewModel.date,
@@ -92,14 +95,20 @@ struct HomePinnedHeaderView: View {
     }
     
     @ViewBuilder
-    private func buttonView(title: String?, placeholder: String, icon: String, action: @escaping (() -> Void)) -> some View {
-        let isEmptyTitle: Bool = !(title?.isEmpty == false)
-        
+    private func destinationView() -> some View {
+        LazyView(RouteScheduleView(viewModel: .init(startPoint: routeViewModel.startPoint,
+                                                    station: routeViewModel.station,
+                                                    date: routeViewModel.date)))
+        .environmentObject(routeViewModel)
+    }
+    
+    @ViewBuilder
+    private func buttonView(title: String, icon: String, action: @escaping (() -> Void)) -> some View {
         Button(action: action) {
-            Label(isEmptyTitle ? placeholder : (title ?? ""), systemImage: icon)
+            Label(title, systemImage: icon)
             .frame(maxWidth: .infinity, idealHeight: 36, alignment: .leading)
         }
-//        .foregroundColor(isEmptyTitle ? .gray : .black)
+        .foregroundColor(Color.Theme.Text.secondary)
     }
 }
 

@@ -17,7 +17,7 @@ final class SelectDateViewModel: LoadableObject {
     private let station: StationModel?
     private let startPoint: StationModel?
     
-    private let networkService: NetworkServiceProtocol
+    private var networkService: NetworkServiceProtocol
     
     init(startPoint: StationModel?, station: StationModel?, dates: Binding<Output>) {
         self.startPoint = startPoint
