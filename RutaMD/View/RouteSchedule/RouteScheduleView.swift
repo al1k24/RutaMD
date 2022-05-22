@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct RouteScheduleView: View {
-    @ObservedObject private var viewModel: RouteScheduleViewModel
-    
-    @State private var selectedRoute: RouteModel?
+    @StateObject private var viewModel: RouteScheduleViewModel
     
     init(viewModel: RouteScheduleViewModel) {
         print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
-        self.viewModel = viewModel
+        self._viewModel = .init(wrappedValue: viewModel)
     }
     
     var body: some View {
@@ -28,17 +26,15 @@ struct RouteScheduleView: View {
                     .navigationLink({ destinationView(route: entity) })
                     .listRow()
                 }
-                .listStyle(.plain)
-                .background(Color.Theme.background)
+                .listStyle()
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
         .navigationBarTitle("Rutele", displayMode: .inline)
     }
     
     @ViewBuilder
     private func destinationView(route: RouteModel) -> some View {
-        LazyView(RouteDetailView(route: route))
+        LazyView(RouteDetailView(viewModel: .init(route: route)))
 //            .environmentObject(routeViewModel)
     }
 }

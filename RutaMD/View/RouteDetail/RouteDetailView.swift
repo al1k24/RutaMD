@@ -8,23 +8,69 @@
 import SwiftUI
 
 struct RouteDetailView: View {
-    private let route: RouteModel
+    @StateObject private var viewModel: RouteDetailViewModel
     
-    init(route: RouteModel) {
+    @State private var isPresentedPlaces: Bool = false
+    
+    init(viewModel: RouteDetailViewModel) {
         print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
-        self.route = route
+        self._viewModel = .init(wrappedValue: viewModel)
     }
     
     var body: some View {
-        VStack {
-            Text("ID: \(route.id)")
-            Text("NAME: \(route.name)")
-            Text("DATE: \(route.date)")
-            Text("DISTANCE: \(route.distance)")
+        AsyncContentView(viewModel: viewModel) { (routeDetail: RouteDetailModel) in
+            List {
+                Section(content: { contentView(routeDetail: routeDetail) },
+                        header: headerView,
+                        footer: footerView)
+                .listRow()
+            }
+            .listStyle()
         }
+        .navigationBarTitle(viewModel.getTitle(), displayMode: .inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button(action: { isPresentedPlaces.toggle() }) {
+                    Image(systemName: "person.2")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 24, height: 24)
+                }
+                .foregroundColor(Color.hex3C71FF)
+            }
+        }
+        .sheet(isPresented: $isPresentedPlaces) {
+            RouteDetailPlacesView()
+        }
+    }
+    
+    @ViewBuilder
+    private func contentView(routeDetail: RouteDetailModel) -> some View {
+        let lastStationId = routeDetail.stations.last?.id
+        
+        ForEach(routeDetail.stations, id: \.id) { station in
+            RouteDetailItemView(station: station, isLast: station.id == lastStationId)
+        }
+    }
+    
+    private func headerView() -> some View {
+        HStack(alignment: .center, spacing: 32) {
+            Text("Pornire")
+                .frame(width: 92)
+            
+            
+            Text("Informatie")
+        }
+        .padding(.horizontal, 16)
+        .frame(maxWidth: .infinity, maxHeight: 60, alignment: .leading)
         .background(Color.Theme.background)
-        .navigationBarTitle("Ruta #\(route.id)", displayMode: .inline)
+        .foregroundColor(Color.Theme.Text.secondary)
+    }
+    
+    private func footerView() -> some View {
+        Label("Pretul si distanta se calculeaza de la punctul de pornire !", systemImage: "info.circle")
+            .padding(16)
     }
 }
 

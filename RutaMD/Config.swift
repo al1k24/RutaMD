@@ -7,4 +7,5 @@
 
 import Foundation
 
-let BASE_URL = "https://autogara.md/gam2020/widget_avibus/include/"
+let BASE_URL = "https://autogara.md"
+let BASE_API_URL = BASE_URL + "/gam2020/widget_avibus/include/"

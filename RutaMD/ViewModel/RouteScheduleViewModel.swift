@@ -52,7 +52,7 @@ final class RouteScheduleViewModel: LoadableObject {
         
         state = .loading
         
-        let route = API.Station.search(startPoint: startPoint.id, station: station.id, date: date.id).route
+        let route = API.Station.search(startPoint: startPoint.id, station: station.id, date: date.id)
         networkService.request(route: route) { [weak self] (result: Result<Data, NetworkError>) in
             switch result {
             case .success(let data):
@@ -94,6 +94,4 @@ final class RouteScheduleViewModel: LoadableObject {
         
         return Calendar.current.isDate(currentDate, inSameDayAs: model.date)
     }
-    
-    
 }

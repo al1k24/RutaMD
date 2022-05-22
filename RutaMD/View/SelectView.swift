@@ -10,39 +10,32 @@ import SwiftUI
 struct SelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: View {
     @Environment(\.dismiss) private var dismiss
     
-    @ObservedObject private var viewModel: ViewModel
+    @StateObject private var viewModel: ViewModel
     @Binding private var onSelect: Entity?
     
-    private let title: String
-    
-    init(viewModel: ViewModel, onSelect: Binding<Entity?>, title: String) {
+    init(viewModel: ViewModel, onSelect: Binding<Entity?>) {
         print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
-        self.title = title
-        self.viewModel = viewModel
+        self._viewModel = .init(wrappedValue: viewModel)
         self._onSelect = onSelect
     }
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            Text(title)
-                .frame(height: 44)
+        AsyncContentView(viewModel: viewModel) { output in
+            let entities = output as? [Entity] ?? []
             
-            AsyncContentView(viewModel: viewModel) { output in
-                let entities = output as? [Entity] ?? []
-                
-                List(entities, id: \.id) { entity in
-                    Button {
+            List(entities, id: \.id) { entity in
+                Button {
+                    if onSelect?.id != entity.id {
                         onSelect = entity
-                        dismiss()
-                    } label: {
-                        Text("\(entity.name) -> id: \(entity.id)")
                     }
+                    
+                    dismiss()
+                } label: {
+                    Text("\(entity.name) -> id: \(entity.id)")
                 }
             }
-            .frame(maxHeight: .infinity, alignment: .leading)
         }
-        .background(Color.Theme.background)
     }
 }
 

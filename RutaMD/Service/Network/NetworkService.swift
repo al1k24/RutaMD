@@ -12,8 +12,8 @@ import SwiftyJSON
 // TODO: Need refactoring
 
 protocol NetworkServiceProtocol {
-    func request(route: Route, completion: @escaping (Result<Data, NetworkError>) -> Void)
-    func request<T: Serialisable>(route: Route, completion: @escaping (Result<T, NetworkError>) -> Void)
+    func request(route apiRoute: APIRoute, completion: @escaping (Result<Data, NetworkError>) -> Void)
+    func request<T: Serialisable>(route apiRoute: APIRoute, completion: @escaping (Result<T, NetworkError>) -> Void)
 }
 
 final class NetworkService: NetworkServiceProtocol {
@@ -30,10 +30,12 @@ final class NetworkService: NetworkServiceProtocol {
         dataRequest = nil
     }
     
-    func request(route: Route, completion: @escaping (Result<Data, NetworkError>) -> Void) {
+    func request(route apiRoute: APIRoute, completion: @escaping (Result<Data, NetworkError>) -> Void) {
         dataRequest?.cancel()
         
-        guard let url = URL(string: BASE_URL)?.appendingPathComponent(route.path) else {
+        let route = apiRoute.route
+        
+        guard let url = URL(string: BASE_API_URL)?.appendingPathComponent(route.path) else {
             self.dataRequest = nil
             completion(.failure(.url))
             return
@@ -44,21 +46,23 @@ final class NetworkService: NetworkServiceProtocol {
         dataRequest = AF.request(url, method: route.method, parameters: route.params)
             .validate()
             .responseData { [weak self] responseData in
+                self?.dataRequest = nil
+                
                 guard let data = responseData.data else {
-                    self?.dataRequest = nil
                     completion(.failure(.custom("Invalid data")))
                     return
                 }
                 
-                self?.dataRequest = nil
                 completion(.success(data))
             }
     }
     
-    func request<T: Serialisable>(route: Route, completion: @escaping (Result<T, NetworkError>) -> Void) {
+    func request<T: Serialisable>(route apiRoute: APIRoute, completion: @escaping (Result<T, NetworkError>) -> Void) {
         dataRequest?.cancel()
         
-        guard let url = URL(string: BASE_URL)?.appendingPathComponent(route.path) else {
+        let route = apiRoute.route
+        
+        guard let url = URL(string: BASE_API_URL)?.appendingPathComponent(route.path) else {
             self.dataRequest = nil
             completion(.failure(.url))
             return
@@ -69,15 +73,14 @@ final class NetworkService: NetworkServiceProtocol {
         dataRequest = AF.request(url, method: route.method, parameters: route.params)
             .validate()
             .responseData { [weak self] responseData in
+                self?.dataRequest = nil
+                
                 guard let data = responseData.data else {
-                    self?.dataRequest = nil
                     completion(.failure(.custom("Invalid data")))
                     return
                 }
                 
                 do {
-                    self?.dataRequest = nil
-                    
                     let json = try JSON(data: data)
                     
                     if let serializedObject = T(json: json) {
@@ -86,8 +89,6 @@ final class NetworkService: NetworkServiceProtocol {
                         completion(.failure(.decoding))
                     }
                 } catch {
-                    self?.dataRequest = nil
-                    
                     completion(.failure(.custom(error.localizedDescription)))
                 }
             }

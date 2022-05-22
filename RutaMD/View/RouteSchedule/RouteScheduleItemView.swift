@@ -7,11 +7,13 @@
 
 import SwiftUI
 
+// TODO: - Нужно вынести часть кода
+
 struct RouteScheduleItemView: View {
     private let routeModel: RouteModel
     
     init(routeModel: RouteModel) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+//        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
         self.routeModel = routeModel
     }
@@ -28,10 +30,11 @@ struct RouteScheduleItemView: View {
             
             availabilityView()
         }
+        .foregroundColor(Color.Theme.Text.secondary)
         .background(Color.hexFFFFFF_232730)
         .cornerRadius(16)
         .overlay(
-            RoundedRectangle(cornerRadius: 16)
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .stroke(Color.hexF2F2F2_393F4D, lineWidth: 2)
         )
         .padding(.horizontal, 16)
@@ -56,7 +59,6 @@ struct RouteScheduleItemView: View {
                 
                 LineShape(startPoint: .top, endPoint: .bottom)
                     .stroke(style: StrokeStyle(lineWidth: 0.5, dash: [2]))
-                    .foregroundColor(Color.hexF2F2F2_393F4D)
                     .frame(width: 14)
             }
             
@@ -82,6 +84,7 @@ struct RouteScheduleItemView: View {
     private func routeTimeView() -> some View {
         HStack(spacing: 2) {
             Image(systemName: "bus.fill")
+            
             Text(routeModel.time)
         }
     }
@@ -101,20 +104,15 @@ struct RouteScheduleItemView: View {
             
             Spacer()
             
-            Button(routeModel.buyComponents.name) {
-                print("* Buy tapped")
-            }
+            buyButtonView()
             .padding(.horizontal, 24)
             .frame(height: 56)
-            .disabled(routeModel.buyComponents.url == nil)
             .foregroundColor(routeModel.buyComponents.url == nil ? Color.hexFF364F : Color.hex1BAA1A)
         }
     }
     
     private func dotImageView() -> some View {
         Image(systemName: "circle.circle")
-            .renderingMode(.template)
-            .foregroundColor(Color.hexF2F2F2_393F4D)
     }
     
     private func availabilityView() -> some View {
@@ -123,6 +121,16 @@ struct RouteScheduleItemView: View {
             .frame(width: 3, height: 24, alignment: .leading)
             .cornerRadius(4, corners: [.topRight, .bottomRight])
             .offset(y: 24)
+    }
+    
+    @ViewBuilder
+    private func buyButtonView() -> some View {
+        if let stringURL = routeModel.buyComponents.url?.addBaseURL, let url = URL(string: stringURL) {
+            Link(routeModel.buyComponents.name, destination: url)
+                .buttonStyle(.plain)
+        } else {
+            Text(routeModel.buyComponents.name)
+        }
     }
 }
 

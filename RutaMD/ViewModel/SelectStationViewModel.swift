@@ -36,7 +36,7 @@ final class SelectStationViewModel: LoadableObject {
 
         state = .loading
         
-        let route = API.Station.getStations(startPoint: startPoint.id).route
+        let route = API.Station.getStations(startPoint: startPoint.id)
         networkService.request(route: route) { [weak self] (result: Result<ArraySerialisable<StationModel>, NetworkError>) in
             switch result {
             case .success(let response):

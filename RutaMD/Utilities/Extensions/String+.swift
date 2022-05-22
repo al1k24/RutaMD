@@ -8,6 +8,10 @@
 import Foundation
 
 extension String {
+    var addBaseURL: String {
+        return BASE_URL + self
+    }
+    
     func clearHTLMTags() -> String {
         return self
             .replacingOccurrences(of: "\t", with: "")

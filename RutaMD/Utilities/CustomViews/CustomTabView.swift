@@ -27,7 +27,7 @@ enum TabType: String, CaseIterable {
 struct CustomTabView<Content: View>: View {
     @State private var currentTab: TabType = .home
     
-    private(set) var content: Content
+    private var content: Content
     
     init(@ViewBuilder content: () -> Content) {
         UITabBar.appearance().isHidden = true

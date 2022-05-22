@@ -17,7 +17,7 @@ struct NavigationViewModifier: ViewModifier {
             print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
             
             navigationBarColors(background: UIColor(named: "background"),
-                                titleColor: .red,
+                                titleColor: UIColor(named: "hex3C71FF"),
                                 tintColor: UIColor(named: "hex3C71FF"))
         }
     }

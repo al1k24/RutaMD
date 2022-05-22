@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeHeaderView: View {
-    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
+//    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
     
     var body: some View {
         GeometryReader { proxy in

@@ -45,7 +45,7 @@ final class SelectDateViewModel: LoadableObject {
 
         state = .loading
         
-        let route = API.Station.getDates(startPoint: startPoint.id, station: station.id).route
+        let route = API.Station.getDates(startPoint: startPoint.id, station: station.id)
         networkService.request(route: route) { [weak self] (result: Result<JSONSerialisable, NetworkError>) in
             switch result {
             case .success(let response):

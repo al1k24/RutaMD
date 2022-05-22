@@ -10,10 +10,8 @@ import SwiftUI
 struct HomePinnedHeaderView: View {
     @EnvironmentObject private var routeViewModel: RouteViewModel
     
-    @State private var year = 2020
-    
     private enum ActiveSheet: Identifiable {
-        case selectStartPoint, selectStation, selectDate
+        case all, selectStartPoint, selectStation, selectDate
         
         var id: Int {
             return hashValue
@@ -32,41 +30,37 @@ struct HomePinnedHeaderView: View {
                     activeSheet = .selectStartPoint
                 }
                 
-                Divider()
-                    .background(Color.hexF2F2F2_393F4D)
+                SeparatorView()
                 
                 buttonView(title: routeViewModel.station?.name ?? "Direcție",
                            icon: routeViewModel.station == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = .selectStation
                 }
-                .disabled(routeViewModel.startPoint == nil)
                 
-                Divider()
-                    .background(Color.hexF2F2F2_393F4D)
+                SeparatorView()
                 
                 buttonView(title: routeViewModel.date?.name ?? "Data",
                            icon: routeViewModel.date == nil ? "calendar.badge.plus" : "calendar") {
                     activeSheet = .selectDate
                 }
-                .disabled(routeViewModel.startPoint == nil || routeViewModel.station == nil)
             }
             .padding(.top, 16)
             .padding(.horizontal)
             
-            NavigationLink(destination: { destinationView() }) {
+            HomeSearchButtonView(isValid: validateSearchButton(),
+                                 action: { activeSheet = .all },
+                                 destination: { destinationView() }) {
                 Text("GĂSEȘTE RUTE")
                     .fontWeight(.semibold)
                     .foregroundColor(Color.hexFFFFFF)
                     .frame(maxWidth: .infinity, idealHeight: 56, alignment: .center)
             }
             .background(Color.hex3C71FF)
-            .navigationBarTitle("")
-            .disabled(routeViewModel.startPoint == nil || routeViewModel.station == nil || routeViewModel.date == nil)
         }
         .background(Color.Theme.background)
         .cornerRadius(14)
         .overlay(
-            RoundedRectangle(cornerRadius: 14)
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
                 .stroke(Color.hexF2F2F2_393F4D, lineWidth: 2)
         )
         .padding(.horizontal, 32)
@@ -78,19 +72,18 @@ struct HomePinnedHeaderView: View {
         switch item {
         case .selectStartPoint:
             SelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
-                              onSelect: $routeViewModel.startPoint,
-                              title: "Alege locatia")
+                              onSelect: $routeViewModel.startPoint)
         case .selectStation:
             SelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
                                                              stations: $routeViewModel.stations),
-                              onSelect: $routeViewModel.station,
-                              title: "Alege directia")
+                              onSelect: $routeViewModel.station)
         case .selectDate:
             SelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
-                                                   station: routeViewModel.station,
-                                                   dates: $routeViewModel.dates),
-                       onSelect: $routeViewModel.date,
-                       title: "Alege data")
+                                                      station: routeViewModel.station,
+                                                      dates: $routeViewModel.dates),
+                       onSelect: $routeViewModel.date)
+        case .all:
+            HomeSearchView()
         }
     }
     
@@ -99,7 +92,14 @@ struct HomePinnedHeaderView: View {
         LazyView(RouteScheduleView(viewModel: .init(startPoint: routeViewModel.startPoint,
                                                     station: routeViewModel.station,
                                                     date: routeViewModel.date)))
+        .navigationBarTitle("DDDDDDD")
         .environmentObject(routeViewModel)
+    }
+    
+    private func validateSearchButton() -> Bool {
+        return routeViewModel.startPoint != nil
+            && routeViewModel.station != nil
+            && routeViewModel.date != nil
     }
     
     @ViewBuilder

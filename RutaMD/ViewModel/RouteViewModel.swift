@@ -12,27 +12,28 @@ final class RouteViewModel: ObservableObject {
     @Published var startPoint: StationModel? {
         didSet {
             station = nil
-            stations = []
+            stations.removeAll()
         }
     }
-    @Published var startPoints: [StationModel] = []
     
     @Published var station: StationModel? {
         didSet {
-            self.date = nil
-            self.dates = []
+            date = nil
+            dates.removeAll()
         }
     }
-    @Published var stations: [StationModel] = []
     
     @Published var date: DateModel?
+    
+    @Published var startPoints: [StationModel] = []
+    @Published var stations: [StationModel] = []
     @Published var dates: [DateModel] = []
     
     init() {
-        loadStations()
+        loadStartPoints()
     }
     
-    private func loadStations() {
+    private func loadStartPoints() {
         DispatchQueue.global(qos: .background).async {
             let file = "stations"
             guard let url = Bundle.main.url(forResource: file, withExtension: "json") else {

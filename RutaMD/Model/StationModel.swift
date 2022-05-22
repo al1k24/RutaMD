@@ -29,3 +29,5 @@ struct StationModel: SelectIdentifiable, Serialisable {
         self.name = name
     }
 }
+
+extension StationModel: Hashable {}

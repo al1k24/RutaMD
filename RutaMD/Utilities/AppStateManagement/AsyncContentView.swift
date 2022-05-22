@@ -18,6 +18,13 @@ struct AsyncContentView<ViewModel: LoadableObject, Content: View>: View {
     }
     
     var body: some View {
+        contentView()
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+            .background(Color.Theme.background)
+    }
+    
+    @ViewBuilder
+    private func contentView() -> some View {
         switch viewModel.state {
         case .idle:
             Color.clear.onAppear(perform: viewModel.load)

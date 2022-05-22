@@ -20,3 +20,5 @@ struct DateModel: SelectIdentifiable {
         self.name = date.toDisplay()
     }
 }
+
+extension DateModel: Hashable {}

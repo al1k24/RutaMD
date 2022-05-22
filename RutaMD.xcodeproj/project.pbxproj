@@ -23,6 +23,7 @@
 		187472282822F54900A5E188 /* ListRowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472272822F54900A5E188 /* ListRowModifier.swift */; };
 		1874722A2822F5D600A5E188 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472292822F5D600A5E188 /* LineShape.swift */; };
 		1874722C2823147700A5E188 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722B2823147700A5E188 /* SeparatorView.swift */; };
+		1874722E2828360E00A5E188 /* RouteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722D2828360E00A5E188 /* RouteDetailModel.swift */; };
 		18901324281F271F00CBECA9 /* RouteScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */; };
 		18901326281F275E00CBECA9 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901325281F275E00CBECA9 /* RouteModel.swift */; };
 		18901329281F31DE00CBECA9 /* HTMLContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901328281F31DE00CBECA9 /* HTMLContentService.swift */; };
@@ -106,6 +107,14 @@
 		18E32C64279D939200273A04 /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C63279D939200273A04 /* HomeHeaderView.swift */; };
 		18E32C67279D93EB00273A04 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C66279D93EB00273A04 /* UIView+.swift */; };
 		18E32C71279D990E00273A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C70279D990E00273A04 /* ContentView.swift */; };
+		18EC3495282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3494282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift */; };
+		18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift */; };
+		18EC3499282FE44500E993D3 /* RouteDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3498282FE44500E993D3 /* RouteDetailItemView.swift */; };
+		18EC349B2831097A00E993D3 /* ListStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC349A2831097A00E993D3 /* ListStyleModifier.swift */; };
+		18EC349D283113F200E993D3 /* RouteDetailPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC349C283113F200E993D3 /* RouteDetailPlacesView.swift */; };
+		18F9A334283A6EC5008614E3 /* HomeSearchButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9A333283A6EC5008614E3 /* HomeSearchButtonView.swift */; };
+		18F9A338283A8947008614E3 /* HomeSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9A337283A8947008614E3 /* HomeSearchView.swift */; };
+		18F9A33A283A9875008614E3 /* SectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F9A339283A9875008614E3 /* SectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +135,7 @@
 		187472272822F54900A5E188 /* ListRowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowModifier.swift; sourceTree = "<group>"; };
 		187472292822F5D600A5E188 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 		1874722B2823147700A5E188 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		1874722D2828360E00A5E188 /* RouteDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailModel.swift; sourceTree = "<group>"; };
 		18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleViewModel.swift; sourceTree = "<group>"; };
 		18901325281F275E00CBECA9 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		18901328281F31DE00CBECA9 /* HTMLContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLContentService.swift; sourceTree = "<group>"; };
@@ -209,6 +219,14 @@
 		18E32C63279D939200273A04 /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		18E32C66279D93EB00273A04 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		18E32C70279D990E00273A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18EC3494282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTMLContentService+ParseRoute.swift"; sourceTree = "<group>"; };
+		18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTMLContentService+ParseRouteDetail.swift"; sourceTree = "<group>"; };
+		18EC3498282FE44500E993D3 /* RouteDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailItemView.swift; sourceTree = "<group>"; };
+		18EC349A2831097A00E993D3 /* ListStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleModifier.swift; sourceTree = "<group>"; };
+		18EC349C283113F200E993D3 /* RouteDetailPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailPlacesView.swift; sourceTree = "<group>"; };
+		18F9A333283A6EC5008614E3 /* HomeSearchButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchButtonView.swift; sourceTree = "<group>"; };
+		18F9A337283A8947008614E3 /* HomeSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSearchView.swift; sourceTree = "<group>"; };
+		18F9A339283A9875008614E3 /* SectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionView.swift; sourceTree = "<group>"; };
 		420A04F5AE067E0032513363 /* Pods-RutaMD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RutaMD.debug.xcconfig"; path = "Target Support Files/Pods-RutaMD/Pods-RutaMD.debug.xcconfig"; sourceTree = "<group>"; };
 		5463FF781845AAC005FB7BEA /* Pods_RutaMD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RutaMD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0DDAEF7D04BF3C3E1087313 /* Pods-RutaMD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RutaMD.release.xcconfig"; path = "Target Support Files/Pods-RutaMD/Pods-RutaMD.release.xcconfig"; sourceTree = "<group>"; };
@@ -248,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				1848CC3F279C592A00D1E91A /* RutaMDApp.swift */,
+				18D47719280F5AE300BB08F8 /* Config.swift */,
 				18D47705280F464100BB08F8 /* Service */,
 				18D476EC280F353300BB08F8 /* Model */,
 				18D476EB280F31A500BB08F8 /* ViewModel */,
@@ -257,7 +276,6 @@
 				1848CC4D279C593D00D1E91A /* Info.plist */,
 				1848CC43279C592B00D1E91A /* Assets.xcassets */,
 				1848CC45279C592B00D1E91A /* Preview Content */,
-				18D47719280F5AE300BB08F8 /* Config.swift */,
 			);
 			path = RutaMD;
 			sourceTree = "<group>";
@@ -274,6 +292,8 @@
 			isa = PBXGroup;
 			children = (
 				18747218282034CF00A5E188 /* RouteDetailView.swift */,
+				18EC3498282FE44500E993D3 /* RouteDetailItemView.swift */,
+				18EC349C283113F200E993D3 /* RouteDetailPlacesView.swift */,
 			);
 			path = RouteDetail;
 			sourceTree = "<group>";
@@ -290,6 +310,7 @@
 			isa = PBXGroup;
 			children = (
 				18901328281F31DE00CBECA9 /* HTMLContentService.swift */,
+				18EC3493282FCCA900E993D3 /* Extensions */,
 			);
 			path = HTML;
 			sourceTree = "<group>";
@@ -431,6 +452,7 @@
 				18CCB8EC281E964600EE8918 /* CustomTabBarView.swift */,
 				187472292822F5D600A5E188 /* LineShape.swift */,
 				1874722B2823147700A5E188 /* SeparatorView.swift */,
+				18F9A339283A9875008614E3 /* SectionView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -457,6 +479,7 @@
 				18CCB8F3281EADCD00EE8918 /* NavigationViewModifier.swift */,
 				187472252822F38D00A5E188 /* NavigationLinkModifier.swift */,
 				187472272822F54900A5E188 /* ListRowModifier.swift */,
+				18EC349A2831097A00E993D3 /* ListStyleModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -488,8 +511,9 @@
 			isa = PBXGroup;
 			children = (
 				18D4770A280F471300BB08F8 /* StationModel.swift */,
-				18901325281F275E00CBECA9 /* RouteModel.swift */,
 				18CCB902281F1A0000EE8918 /* DateModel.swift */,
+				18901325281F275E00CBECA9 /* RouteModel.swift */,
+				1874722D2828360E00A5E188 /* RouteDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -529,8 +553,8 @@
 		18D47705280F464100BB08F8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				18901327281F31C500CBECA9 /* HTML */,
 				18D47700280F45F600BB08F8 /* Network */,
+				18901327281F31C500CBECA9 /* HTML */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -573,6 +597,8 @@
 				18E32C60279D935300273A04 /* HomeView.swift */,
 				18E32C63279D939200273A04 /* HomeHeaderView.swift */,
 				18D2E5CD280C632000E7D474 /* HomePinnedHeaderView.swift */,
+				18F9A337283A8947008614E3 /* HomeSearchView.swift */,
+				18F9A333283A6EC5008614E3 /* HomeSearchButtonView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -586,6 +612,15 @@
 				18CCB8FC281F014F00EE8918 /* String+Date.swift */,
 				1890138D282007F300CBECA9 /* String+.swift */,
 				18747215282027CB00A5E188 /* Array+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		18EC3493282FCCA900E993D3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18EC3494282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift */,
+				18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -758,8 +793,10 @@
 				18D2E5D1280C659B00E7D474 /* RouteScheduleView.swift in Sources */,
 				18D2E5DC280C6F8800E7D474 /* UIView+Transform.swift in Sources */,
 				1890138C2820013D00CBECA9 /* RegexError.swift in Sources */,
+				1874722E2828360E00A5E188 /* RouteDetailModel.swift in Sources */,
 				18E32C67279D93EB00273A04 /* UIView+.swift in Sources */,
 				18901375281FFD9700CBECA9 /* TagParser.swift in Sources */,
+				18EC3495282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift in Sources */,
 				18D4770B280F471300BB08F8 /* StationModel.swift in Sources */,
 				18901374281FFD9700CBECA9 /* ScriptParser.swift in Sources */,
 				18CCB8E4281E8B1400EE8918 /* View+Corners.swift in Sources */,
@@ -774,11 +811,13 @@
 				18D47716280F516700BB08F8 /* APIResponseType.swift in Sources */,
 				18CCB8ED281E964600EE8918 /* CustomTabBarView.swift in Sources */,
 				18901365281FFD9700CBECA9 /* ElementSelector.swift in Sources */,
+				18EC349D283113F200E993D3 /* RouteDetailPlacesView.swift in Sources */,
 				1890137C281FFD9700CBECA9 /* NodeType.swift in Sources */,
 				18901387281FFD9700CBECA9 /* StringExtensions.swift in Sources */,
 				1874721B2820350A00A5E188 /* RouteDetailViewModel.swift in Sources */,
 				18D4770F280F50FD00BB08F8 /* APIRoute.swift in Sources */,
 				1890137B281FFD9700CBECA9 /* Element.swift in Sources */,
+				18F9A33A283A9875008614E3 /* SectionView.swift in Sources */,
 				187472262822F38D00A5E188 /* NavigationLinkModifier.swift in Sources */,
 				18901372281FFD9700CBECA9 /* LookaheadValidator.swift in Sources */,
 				1823AAAB28109C4F00B5A170 /* SelectStationViewModel.swift in Sources */,
@@ -790,6 +829,7 @@
 				18D2E5DA280C6B3D00E7D474 /* TabItemModifier.swift in Sources */,
 				18D47718280F58E500BB08F8 /* API+Station.swift in Sources */,
 				18D4771A280F5AE300BB08F8 /* Config.swift in Sources */,
+				18F9A334283A6EC5008614E3 /* HomeSearchButtonView.swift in Sources */,
 				18901385281FFD9700CBECA9 /* CDATAParser.swift in Sources */,
 				18D47707280F464D00BB08F8 /* NetworkService.swift in Sources */,
 				1890136D281FFD9700CBECA9 /* PositionIntSelectorBuilder.swift in Sources */,
@@ -807,10 +847,14 @@
 				187472242822E3F500A5E188 /* RouteScheduleItemView.swift in Sources */,
 				18D2E5D5280C681D00E7D474 /* TestView.swift in Sources */,
 				18D47711280F512500BB08F8 /* Route.swift in Sources */,
+				18F9A338283A8947008614E3 /* HomeSearchView.swift in Sources */,
+				18EC3499282FE44500E993D3 /* RouteDetailItemView.swift in Sources */,
 				18747219282034CF00A5E188 /* RouteDetailView.swift in Sources */,
 				18901329281F31DE00CBECA9 /* HTMLContentService.swift in Sources */,
+				18EC349B2831097A00E993D3 /* ListStyleModifier.swift in Sources */,
 				18901366281FFD9700CBECA9 /* CDataSelector.swift in Sources */,
 				18E32C61279D935300273A04 /* HomeView.swift in Sources */,
+				18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift in Sources */,
 				18901384281FFD9700CBECA9 /* HTMLParser.swift in Sources */,
 				1874722A2822F5D600A5E188 /* LineShape.swift in Sources */,
 				1890138E282007F300CBECA9 /* String+.swift in Sources */,

@@ -14,7 +14,7 @@ struct RouteScheduleHeaderView: View {
     @Namespace private var animation
     
     init(viewModel: RouteScheduleViewModel) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+//        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
         self.viewModel = viewModel
     }
@@ -52,7 +52,6 @@ struct RouteScheduleHeaderView: View {
                             .frame(width: 45, height: 90)
                             .background(
                                 ZStack {
-                                    // MARK: Matched Geometry Effect
                                     if isToday {
                                         Capsule()
                                             .fill(Color.hex3C71FF)
@@ -62,12 +61,9 @@ struct RouteScheduleHeaderView: View {
                             )
                             .contentShape(Capsule())
                             .onTapGesture {
-//                                let generator = UINotificationFeedbackGenerator()
-//                                    generator.notificationOccurred(.warning)
-                                // Updating Current Day
-                                withAnimation {
+//                                withAnimation {
                                     viewModel.select(dateModel)
-                                }
+//                                }
                             }
                         }
                     }

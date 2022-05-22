@@ -8,6 +8,5 @@ target 'RutaMD' do
   # Pods for RutaMD
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'SwiftSoup'
   
 end
