@@ -33,7 +33,7 @@ extension RouteModel {
     
     struct BuyComponents {
         let name: String
-        let url: String?
+        let url: URL?
     }
 }
 

@@ -10,6 +10,8 @@ import SwiftUI
 struct RouteScheduleView: View {
     @StateObject private var viewModel: RouteScheduleViewModel
     
+    @State private var selectedURL: URL?
+    
     init(viewModel: RouteScheduleViewModel) {
         print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
@@ -22,20 +24,26 @@ struct RouteScheduleView: View {
             
             AsyncContentView(viewModel: viewModel) { (routes: [RouteModel]) in
                 List(routes, id: \.id) { entity in
-                    RouteScheduleItemView(routeModel: entity)
-                    .navigationLink({ destinationView(route: entity) })
-                    .listRow()
+                    RouteScheduleItemView(routeModel: entity, selectedURL: $selectedURL)
+                        .navigationLink({ destinationView(route: entity) })
+                        .listRow()
                 }
                 .listStyle()
             }
         }
         .navigationBarTitle("Rutele", displayMode: .inline)
+        .sheet(item: $selectedURL, content: handleBuyActionSheet)
     }
     
     @ViewBuilder
     private func destinationView(route: RouteModel) -> some View {
         LazyView(RouteDetailView(viewModel: .init(route: route)))
 //            .environmentObject(routeViewModel)
+    }
+    
+    @ViewBuilder
+    private func handleBuyActionSheet(_ url: URL) -> some View {
+        SFSafariView(url: url)
     }
 }
 

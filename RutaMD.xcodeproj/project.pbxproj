@@ -8,8 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0AE2391194082A89EE1AE3A4 /* Pods_RutaMD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5463FF781845AAC005FB7BEA /* Pods_RutaMD.framework */; };
-		1823AAA92810996E00B5A170 /* SelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823AAA82810996E00B5A170 /* SelectView.swift */; };
+		1823AAA92810996E00B5A170 /* HomeSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823AAA82810996E00B5A170 /* HomeSelectView.swift */; };
 		1823AAAB28109C4F00B5A170 /* SelectStationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1823AAAA28109C4F00B5A170 /* SelectStationViewModel.swift */; };
+		183EAE1A283EA3C400732D9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE19283EA3C400732D9E /* AppDelegate.swift */; };
+		183EAE1C283EB72800732D9E /* SFSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE1B283EB72800732D9E /* SFSafariView.swift */; };
+		183EAE1F283EBDC700732D9E /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE1E283EBDC700732D9E /* URL+Identifiable.swift */; };
+		183EAE21283ED0AE00732D9E /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE20283ED0AE00732D9E /* String+URL.swift */; };
 		1848CC40279C592A00D1E91A /* RutaMDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848CC3F279C592A00D1E91A /* RutaMDApp.swift */; };
 		1848CC44279C592B00D1E91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC43279C592B00D1E91A /* Assets.xcassets */; };
 		1848CC47279C592B00D1E91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC46279C592B00D1E91A /* Preview Assets.xcassets */; };
@@ -118,8 +122,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1823AAA82810996E00B5A170 /* SelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectView.swift; sourceTree = "<group>"; };
+		1823AAA82810996E00B5A170 /* HomeSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSelectView.swift; sourceTree = "<group>"; };
 		1823AAAA28109C4F00B5A170 /* SelectStationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectStationViewModel.swift; sourceTree = "<group>"; };
+		183EAE19283EA3C400732D9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		183EAE1B283EB72800732D9E /* SFSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariView.swift; sourceTree = "<group>"; };
+		183EAE1E283EBDC700732D9E /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
+		183EAE20283ED0AE00732D9E /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
 		1848CC3C279C592A00D1E91A /* RutaMD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RutaMD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1848CC3F279C592A00D1E91A /* RutaMDApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RutaMDApp.swift; sourceTree = "<group>"; };
 		1848CC43279C592B00D1E91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -244,6 +252,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183EAE1D283EB79800732D9E /* ViewControllerRepresentable */ = {
+			isa = PBXGroup;
+			children = (
+				183EAE1B283EB72800732D9E /* SFSafariView.swift */,
+			);
+			path = ViewControllerRepresentable;
+			sourceTree = "<group>";
+		};
 		1848CC33279C592A00D1E91A = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +479,7 @@
 				18CCB8E7281E93E600EE8918 /* CustomViews */,
 				18D476F9280F409E00BB08F8 /* AppStateManagement */,
 				18D2E5CA280C5BA900E7D474 /* ViewModifiers */,
+				183EAE1D283EB79800732D9E /* ViewControllerRepresentable */,
 				18E32C65279D93BB00273A04 /* Extensions */,
 				18D476EF280F363600BB08F8 /* Serialisable.swift */,
 				18CCB8FE281F149D00EE8918 /* SelectIdentifiable.swift */,
@@ -553,6 +570,7 @@
 		18D47705280F464100BB08F8 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				183EAE19283EA3C400732D9E /* AppDelegate.swift */,
 				18D47700280F45F600BB08F8 /* Network */,
 				18901327281F31C500CBECA9 /* HTML */,
 			);
@@ -581,7 +599,6 @@
 			isa = PBXGroup;
 			children = (
 				18E32C70279D990E00273A04 /* ContentView.swift */,
-				1823AAA82810996E00B5A170 /* SelectView.swift */,
 				18E32C62279D936500273A04 /* Home */,
 				18D2E5CF280C656E00E7D474 /* RouteSchedule */,
 				18747217282034AF00A5E188 /* RouteDetail */,
@@ -595,6 +612,7 @@
 			isa = PBXGroup;
 			children = (
 				18E32C60279D935300273A04 /* HomeView.swift */,
+				1823AAA82810996E00B5A170 /* HomeSelectView.swift */,
 				18E32C63279D939200273A04 /* HomeHeaderView.swift */,
 				18D2E5CD280C632000E7D474 /* HomePinnedHeaderView.swift */,
 				18F9A337283A8947008614E3 /* HomeSearchView.swift */,
@@ -612,6 +630,8 @@
 				18CCB8FC281F014F00EE8918 /* String+Date.swift */,
 				1890138D282007F300CBECA9 /* String+.swift */,
 				18747215282027CB00A5E188 /* Array+.swift */,
+				183EAE1E283EBDC700732D9E /* URL+Identifiable.swift */,
+				183EAE20283ED0AE00732D9E /* String+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -774,7 +794,9 @@
 				18901383281FFD9700CBECA9 /* ElementParser.swift in Sources */,
 				18D476FD280F40C500BB08F8 /* LoadableObject.swift in Sources */,
 				18D476F0280F363600BB08F8 /* Serialisable.swift in Sources */,
+				183EAE1F283EBDC700732D9E /* URL+Identifiable.swift in Sources */,
 				187472202821651900A5E188 /* SettingsView.swift in Sources */,
+				183EAE1A283EA3C400732D9E /* AppDelegate.swift in Sources */,
 				1890137A281FFD9700CBECA9 /* TextNode.swift in Sources */,
 				1890136A281FFD9700CBECA9 /* IdStringSelectorBuilder.swift in Sources */,
 				18901370281FFD9700CBECA9 /* CommentParser.swift in Sources */,
@@ -831,15 +853,17 @@
 				18D4771A280F5AE300BB08F8 /* Config.swift in Sources */,
 				18F9A334283A6EC5008614E3 /* HomeSearchButtonView.swift in Sources */,
 				18901385281FFD9700CBECA9 /* CDATAParser.swift in Sources */,
+				183EAE1C283EB72800732D9E /* SFSafariView.swift in Sources */,
 				18D47707280F464D00BB08F8 /* NetworkService.swift in Sources */,
 				1890136D281FFD9700CBECA9 /* PositionIntSelectorBuilder.swift in Sources */,
 				18E32C71279D990E00273A04 /* ContentView.swift in Sources */,
+				183EAE21283ED0AE00732D9E /* String+URL.swift in Sources */,
 				18901389281FFD9700CBECA9 /* RegexHelper.swift in Sources */,
 				18901380281FFD9700CBECA9 /* KnownHTMLTags.swift in Sources */,
 				18901367281FFD9700CBECA9 /* AttributeSelector.swift in Sources */,
 				1848CC40279C592A00D1E91A /* RutaMDApp.swift in Sources */,
 				18747216282027CB00A5E188 /* Array+.swift in Sources */,
-				1823AAA92810996E00B5A170 /* SelectView.swift in Sources */,
+				1823AAA92810996E00B5A170 /* HomeSelectView.swift in Sources */,
 				18901363281FFD9700CBECA9 /* CommentSelector.swift in Sources */,
 				18D2E5CE280C632000E7D474 /* HomePinnedHeaderView.swift in Sources */,
 				18D47714280F515400BB08F8 /* API.swift in Sources */,

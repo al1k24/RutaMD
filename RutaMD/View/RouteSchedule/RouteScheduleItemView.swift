@@ -12,19 +12,20 @@ import SwiftUI
 struct RouteScheduleItemView: View {
     private let routeModel: RouteModel
     
-    init(routeModel: RouteModel) {
+    @Binding private var selectedURL: URL?
+    
+    init(routeModel: RouteModel, selectedURL: Binding<URL?>) {
 //        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
         self.routeModel = routeModel
+        self._selectedURL = selectedURL
     }
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             VStack(alignment: .leading, spacing: 0) {
                 headerView()
-
                 SeparatorView()
-                
                 footerView()
             }
             
@@ -55,7 +56,7 @@ struct RouteScheduleItemView: View {
     private func routeStartPointView() -> some View {
         HStack(alignment: .top, spacing: 16) {
             VStack(spacing: 0) {
-                dotImageView()
+                Image(systemName: "circle.circle")
                 
                 LineShape(startPoint: .top, endPoint: .bottom)
                     .stroke(style: StrokeStyle(lineWidth: 0.5, dash: [2]))
@@ -75,8 +76,7 @@ struct RouteScheduleItemView: View {
     
     private func routeDestinationView() -> some View {
         HStack(alignment: .top, spacing: 16) {
-            dotImageView()
-            
+            Image(systemName: "circle.circle")
             Text(routeModel.info.destination)
         }
     }
@@ -84,7 +84,6 @@ struct RouteScheduleItemView: View {
     private func routeTimeView() -> some View {
         HStack(spacing: 2) {
             Image(systemName: "bus.fill")
-            
             Text(routeModel.time)
         }
     }
@@ -105,14 +104,10 @@ struct RouteScheduleItemView: View {
             Spacer()
             
             buyButtonView()
-            .padding(.horizontal, 24)
-            .frame(height: 56)
-            .foregroundColor(routeModel.buyComponents.url == nil ? Color.hexFF364F : Color.hex1BAA1A)
+                .padding(.horizontal, 24)
+                .frame(height: 56)
+                .foregroundColor(routeModel.buyComponents.url == nil ? Color.hexFF364F : Color.hex1BAA1A)
         }
-    }
-    
-    private func dotImageView() -> some View {
-        Image(systemName: "circle.circle")
     }
     
     private func availabilityView() -> some View {
@@ -125,30 +120,13 @@ struct RouteScheduleItemView: View {
     
     @ViewBuilder
     private func buyButtonView() -> some View {
-        if let stringURL = routeModel.buyComponents.url?.addBaseURL, let url = URL(string: stringURL) {
-            Link(routeModel.buyComponents.name, destination: url)
-                .buttonStyle(.plain)
+        if let url = routeModel.buyComponents.url {
+            Button(routeModel.buyComponents.name) {
+                selectedURL = url
+            }
+            .buttonStyle(.plain)
         } else {
             Text(routeModel.buyComponents.name)
         }
-    }
-}
-
-struct RouteScheduleItemView_Previews: PreviewProvider {
-    static var previews: some View {
-        RouteScheduleItemView(routeModel: .init(id: "0",
-                                                name: "Route 1",
-                                                info: .init(startPoint: "Test 1",
-                                                            destination: "Test 2"),
-                                                date: Date(),
-                                                time: "14:30",
-                                                distance: "120",
-                                                price: "12 MDL",
-                                                components: .init(route: "001",
-                                                                  routeCode: "0002",
-                                                                  date: Date()),
-                                                buyComponents: .init(name: "Anulat",
-                                                                     url: nil)))
-        .frame(height: 192)
     }
 }

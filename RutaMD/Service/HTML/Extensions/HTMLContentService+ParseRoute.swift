@@ -103,7 +103,7 @@ extension HTMLContentService {
         return element.childElements[safe: 6]?.textNodes.first?.text
     }
     
-    private func parseRouteBuyComponents(from element: Element) -> (name: String, url: String?)? {
+    private func parseRouteBuyComponents(from element: Element) -> (name: String, url: URL?)? {
         guard let childElement = element.childElements[safe: 7]?.childElements.first else {
             return nil
         }
@@ -114,7 +114,7 @@ extension HTMLContentService {
         
         if childElement.openingTag.tagName == "a" {
             let url = childElement.openingTag.attributes["href"]?.value
-            return (name: name, url: url)
+            return (name: name, url: url?.addBaseURL.toValidURL())
         } else if childElement.openingTag.tagName == "span" {
             return (name: name, url: nil)
         }

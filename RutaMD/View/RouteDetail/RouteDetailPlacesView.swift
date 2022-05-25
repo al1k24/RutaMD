@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RouteDetailPlacesView: View {
+    @Environment(\.dismiss) private var dismiss
+    
     private(set) var places: [RouteDetailModel.Place] = [
         .init(id: 1, isAvailable: false),
         .init(id: 2, isAvailable: true),
@@ -32,10 +34,7 @@ struct RouteDetailPlacesView: View {
     ]
     
     var body: some View {
-        VStack(alignment: .center, spacing: 0) {
-            Text("Locuri disponibile")
-                .frame(height: 44)
-            
+        NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 LazyVGrid(columns: gridItemLayout, alignment: .center, spacing: 32) {
                     ForEach(places, id: \.id) { place in
@@ -49,8 +48,16 @@ struct RouteDetailPlacesView: View {
                 }
                 .padding(.top, 8)
             }
+            .background(Color.Theme.background)
+            .navigationBarTitle("Locuri disponibile", displayMode: .inline)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button("Close") {
+                        dismiss()
+                    }
+                }
+            }
         }
-        .background(Color.Theme.background)
     }
 }
 

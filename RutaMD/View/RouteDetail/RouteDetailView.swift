@@ -10,7 +10,15 @@ import SwiftUI
 struct RouteDetailView: View {
     @StateObject private var viewModel: RouteDetailViewModel
     
-    @State private var isPresentedPlaces: Bool = false
+    private enum ActiveSheet: Identifiable {
+        case buy, places
+        
+        var id: Int {
+            return hashValue
+        }
+    }
+    
+    @State private var activeSheet: ActiveSheet?
     
     init(viewModel: RouteDetailViewModel) {
         print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
@@ -19,19 +27,21 @@ struct RouteDetailView: View {
     }
     
     var body: some View {
-        AsyncContentView(viewModel: viewModel) { (routeDetail: RouteDetailModel) in
-            List {
-                Section(content: { contentView(routeDetail: routeDetail) },
-                        header: headerView,
-                        footer: footerView)
-                .listRow()
+        VStack(spacing: 0) {
+            AsyncContentView(viewModel: viewModel) { (routeDetail: RouteDetailModel) in
+                List {
+                    Section(content: { contentView(routeDetail: routeDetail) },
+                            header: headerView,
+                            footer: footerView)
+                    .listRow()
+                }
+                .listStyle()
             }
-            .listStyle()
         }
         .navigationBarTitle(viewModel.getTitle(), displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: { isPresentedPlaces.toggle() }) {
+                Button(action: { activeSheet = .places }) {
                     Image(systemName: "person.2")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -40,8 +50,21 @@ struct RouteDetailView: View {
                 .foregroundColor(Color.hex3C71FF)
             }
         }
-        .sheet(isPresented: $isPresentedPlaces) {
+        .sheet(item: $activeSheet, content: handleActionSheet)
+    }
+    
+    @ViewBuilder
+    private func handleActionSheet(_ item: ActiveSheet) -> some View {
+        switch item {
+        case .places:
             RouteDetailPlacesView()
+        case .buy:
+            if let url = viewModel.getBuyURL() {
+                SFSafariView(url: url)
+            } else {
+                // TODO: Display Error View
+                Text("[Error]: Invalid URL")
+            }
         }
     }
     
@@ -59,7 +82,6 @@ struct RouteDetailView: View {
             Text("Pornire")
                 .frame(width: 92)
             
-            
             Text("Informatie")
         }
         .padding(.horizontal, 16)
@@ -69,8 +91,19 @@ struct RouteDetailView: View {
     }
     
     private func footerView() -> some View {
-        Label("Pretul si distanta se calculeaza de la punctul de pornire !", systemImage: "info.circle")
-            .padding(16)
+        buyButtonView()
+            .padding(.vertical, 16)
+    }
+    
+    private func buyButtonView() -> some View {
+        Button(action: { activeSheet = .buy }) {
+            Label("Cumpara bilet", systemImage: "cart")
+        }
+        .frame(maxWidth: .infinity, idealHeight: 56, maxHeight: 56, alignment: .center)
+        .background(.red)
+        .cornerRadius(16)
+        .padding(.horizontal, 32)
+        .foregroundColor(Color.Theme.Text.primary)
     }
 }
 

@@ -11,7 +11,7 @@ struct HomePinnedHeaderView: View {
     @EnvironmentObject private var routeViewModel: RouteViewModel
     
     private enum ActiveSheet: Identifiable {
-        case all, selectStartPoint, selectStation, selectDate
+        case configure, selectStartPoint, selectStation, selectDate
         
         var id: Int {
             return hashValue
@@ -20,7 +20,7 @@ struct HomePinnedHeaderView: View {
     
     @State private var activeSheet: ActiveSheet?
     
-    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
+//    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
@@ -34,21 +34,21 @@ struct HomePinnedHeaderView: View {
                 
                 buttonView(title: routeViewModel.station?.name ?? "Direcție",
                            icon: routeViewModel.station == nil ? "circle.circle" : "circle.circle.fill") {
-                    activeSheet = .selectStation
+                    activeSheet = routeViewModel.startPoint == nil ? .configure : .selectStation
                 }
                 
                 SeparatorView()
                 
                 buttonView(title: routeViewModel.date?.name ?? "Data",
                            icon: routeViewModel.date == nil ? "calendar.badge.plus" : "calendar") {
-                    activeSheet = .selectDate
+                    activeSheet = routeViewModel.station == nil ? .configure : .selectDate
                 }
             }
             .padding(.top, 16)
             .padding(.horizontal)
             
-            HomeSearchButtonView(isValid: validateSearchButton(),
-                                 action: { activeSheet = .all },
+            HomeSearchButtonView(isValid: routeViewModel.isValidSearch(),
+                                 action: { activeSheet = .configure },
                                  destination: { destinationView() }) {
                 Text("GĂSEȘTE RUTE")
                     .fontWeight(.semibold)
@@ -65,24 +65,25 @@ struct HomePinnedHeaderView: View {
         )
         .padding(.horizontal, 32)
         .sheet(item: $activeSheet, content: handleActionSheet)
+        .navigationLink(isActive: $routeViewModel.isActiveQuickSearch, { destinationView() })
     }
     
     @ViewBuilder
     private func handleActionSheet(_ item: ActiveSheet) -> some View {
         switch item {
         case .selectStartPoint:
-            SelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
-                              onSelect: $routeViewModel.startPoint)
+            HomeSelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
+                           onSelect: $routeViewModel.startPoint)
         case .selectStation:
-            SelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
+            HomeSelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
                                                              stations: $routeViewModel.stations),
-                              onSelect: $routeViewModel.station)
+                           onSelect: $routeViewModel.station)
         case .selectDate:
-            SelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
+            HomeSelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
                                                       station: routeViewModel.station,
                                                       dates: $routeViewModel.dates),
-                       onSelect: $routeViewModel.date)
-        case .all:
+                           onSelect: $routeViewModel.date)
+        case .configure:
             HomeSearchView()
         }
     }
@@ -92,14 +93,7 @@ struct HomePinnedHeaderView: View {
         LazyView(RouteScheduleView(viewModel: .init(startPoint: routeViewModel.startPoint,
                                                     station: routeViewModel.station,
                                                     date: routeViewModel.date)))
-        .navigationBarTitle("DDDDDDD")
         .environmentObject(routeViewModel)
-    }
-    
-    private func validateSearchButton() -> Bool {
-        return routeViewModel.startPoint != nil
-            && routeViewModel.station != nil
-            && routeViewModel.date != nil
     }
     
     @ViewBuilder

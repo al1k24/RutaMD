@@ -1,5 +1,5 @@
 //
-//  SelectView.swift
+//  HomeSelectView.swift
 //  RutaMD
 //
 //  Created by Alik Moldovanu on 20.04.2022.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: View {
+struct HomeSelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: View {
     @Environment(\.dismiss) private var dismiss
     
     @StateObject private var viewModel: ViewModel

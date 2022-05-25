@@ -58,4 +58,8 @@ final class RouteDetailViewModel: LoadableObject {
     func getTitle() -> String {
         return "Ruta #\(route.id)"
     }
+    
+    func getBuyURL() -> URL? {
+        return route.buyComponents.url
+    }
 }

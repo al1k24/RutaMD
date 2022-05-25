@@ -11,6 +11,18 @@ struct HomeSearchView: View {
     @Environment(\.dismiss) private var dismiss
     @EnvironmentObject private var routeViewModel: RouteViewModel
     
+    private enum DestinationType {
+        case startPoint, station, date
+        
+        var title: String {
+            switch self {
+            case .startPoint: return "Alege locația"
+            case .station: return "Alege direcția"
+            case .date: return "Alege data"
+            }
+        }
+    }
+    
     init() {
         print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
     }
@@ -20,15 +32,15 @@ struct HomeSearchView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
                     SectionView(title: "Locația") {
-                        selectStartPointView()
+                        selectView(.startPoint, title: routeViewModel.startPoint?.name)
                     }
                     
                     SectionView(title: "Direcția") {
-                        selectStationView()
+                        selectView(.station, title: routeViewModel.station?.name)
                     }
                     
                     SectionView(title: "Data") {
-                        selectDateView()
+                        selectView(.date, title: routeViewModel.date?.name)
                     }
                 }
                 .padding(.bottom, 16)
@@ -42,40 +54,43 @@ struct HomeSearchView: View {
                         dismiss()
                     }
                 }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Search") {
+                        dismiss()
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                            self.routeViewModel.isActiveQuickSearch.toggle()
+                        }
+                    }
+                    .disabled(!routeViewModel.isValidSearch())
+                }
             }
         }
     }
     
-    private func selectStartPointView() -> some View {
+    private func selectView(_ type: DestinationType, title: String?) -> some View {
         NavigationLink(destination: {
-            LazyView(SelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
-                                onSelect: $routeViewModel.startPoint))
-            .navigationBarTitle("Alege locația", displayMode: .inline)
-        }) {
-            sectionItem(title: routeViewModel.startPoint?.name, placeholder: "Alege locația")
-        }
+            LazyView(destinationView(type))
+                .navigationBarTitle(type.title, displayMode: .inline)
+        }) { sectionItem(title: title, placeholder: type.title) }
     }
     
-    private func selectStationView() -> some View {
-        NavigationLink(destination: {
-            LazyView(SelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
-                                                                  stations: $routeViewModel.stations),
-                                onSelect: $routeViewModel.station))
-            .navigationBarTitle("Alege direcția", displayMode: .inline)
-        }) {
-            sectionItem(title: routeViewModel.station?.name, placeholder: "Alege direcția")
-        }
-    }
-    
-    private func selectDateView() -> some View {
-        NavigationLink(destination: {
-            LazyView(SelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
-                                                               station: routeViewModel.station,
-                                                               dates: $routeViewModel.dates),
-                                onSelect: $routeViewModel.date))
-            .navigationBarTitle("Alege data", displayMode: .inline)
-        }) {
-            sectionItem(title: routeViewModel.date?.name, placeholder: "Alege data")
+    @ViewBuilder
+    private func destinationView(_ type: DestinationType) -> some View {
+        switch type {
+        case .startPoint:
+            HomeSelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
+                           onSelect: $routeViewModel.startPoint)
+        case .station:
+            HomeSelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
+                                                             stations: $routeViewModel.stations),
+                           onSelect: $routeViewModel.station)
+        case .date:
+            HomeSelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
+                                                      station: routeViewModel.station,
+                                                      dates: $routeViewModel.dates),
+                           onSelect: $routeViewModel.date)
         }
     }
     
