@@ -25,17 +25,17 @@ struct RouteDetailItemView: View {
                 Text(station.date.toDisplay(format: "dd MMM"))
                 Text(station.time ?? "-")
             }
-            .frame(width: 60, height: 60, alignment: .top)
+            .frame(width: 80, alignment: .top)
             
             VStack(spacing: 0) {
-                dotImageView()
+                Image(systemName: "circle.circle")
                 
                 if !isLastItem {
-                    LineShape(startPoint: .top, endPoint: .bottom)
+                    Line(startPoint: .top, endPoint: .bottom)
                         .stroke(style: StrokeStyle(lineWidth: 0.5, dash: [2]))
-                        .frame(width: 14)
                 }
             }
+            .frame(width: 10, alignment: .center)
             
             VStack(alignment: .leading, spacing: 4) {
                 Text(station.name)
@@ -53,14 +53,9 @@ struct RouteDetailItemView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
     }
     
-    private func dotImageView() -> some View {
-        Image(systemName: "circle.circle")
-    }
-    
     private func infoView(_ text: String, icon: String) -> some View {
         HStack(spacing: 4) {
             Image(systemName: icon)
-            
             Text(text)
         }
     }

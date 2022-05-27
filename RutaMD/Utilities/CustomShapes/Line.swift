@@ -1,19 +1,26 @@
 //
-//  LineShape.swift
+//  Line.swift
 //  RutaMD
 //
-//  Created by Alik Moldovanu on 04.05.2022.
+//  Created by Alik Moldovanu on 28.05.2022.
 //
 
 import SwiftUI
 
-struct LineShape: Shape {
+struct Line: Shape {
     private let startPoint: Alignment
     private let endPoint: Alignment
     
     init(startPoint: Alignment, endPoint: Alignment) {
         self.startPoint = startPoint
         self.endPoint = endPoint
+    }
+    
+    func path(in rect: CGRect) -> Path {
+        Path { path in
+            path.move(to: cgPointTranslator(alignment: startPoint, rect: rect))
+            path.addLine(to: cgPointTranslator(alignment: endPoint, rect: rect))
+        }
     }
     
     private func cgPointTranslator(alignment: Alignment, rect: CGRect) -> CGPoint {
@@ -32,12 +39,4 @@ struct LineShape: Shape {
         default: return CGPoint(x: rect.minX, y: rect.minY)
         }
     }
-
-    func path(in rect: CGRect) -> Path {
-        Path { path in
-            path.move(to: cgPointTranslator(alignment: startPoint, rect: rect))
-            path.addLine(to: cgPointTranslator(alignment: endPoint, rect: rect))
-        }
-    }
 }
-

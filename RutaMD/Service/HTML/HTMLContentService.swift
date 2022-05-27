@@ -36,8 +36,11 @@ struct HTMLContentService: HTMLContentServiceProtocol {
                     completion(.success(routes))
                 }
             } catch {
-                completion(.failure(.custom(error.localizedDescription)))
                 print("* HTML Parser -> Error: \(error.localizedDescription)")
+                
+                DispatchQueue.main.async {
+                    completion(.failure(.custom(error.localizedDescription)))
+                }
             }
         }
     }
@@ -67,8 +70,11 @@ struct HTMLContentService: HTMLContentServiceProtocol {
                     completion(.success(stations))
                 }
             } catch {
-                completion(.failure(.custom(error.localizedDescription)))
                 print("* HTML Parser -> Error: \(error.localizedDescription)")
+                
+                DispatchQueue.main.async {
+                    completion(.failure(.custom(error.localizedDescription)))
+                }
             }
         }
     }

@@ -58,7 +58,7 @@ struct RouteScheduleItemView: View {
             VStack(spacing: 0) {
                 Image(systemName: "circle.circle")
                 
-                LineShape(startPoint: .top, endPoint: .bottom)
+                Line(startPoint: .top, endPoint: .bottom)
                     .stroke(style: StrokeStyle(lineWidth: 0.5, dash: [2]))
                     .frame(width: 14)
             }

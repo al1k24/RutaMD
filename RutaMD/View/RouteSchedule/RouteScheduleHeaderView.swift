@@ -21,7 +21,7 @@ struct RouteScheduleHeaderView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(viewModel.getSelectedDateValue())
+            Text(viewModel.toDisplay())
                 .font(.title2.bold())
                 .foregroundColor(Color.Theme.Text.primary)
                 .padding(.horizontal)
@@ -31,46 +31,11 @@ struct RouteScheduleHeaderView: View {
                 ScrollViewReader { proxy in
                     HStack(spacing: 10) {
                         ForEach(routeViewModel.dates, id: \.id) { dateModel in
-                            let isToday: Bool = viewModel.isToday(dateModel)
-                            
-                            VStack(spacing: 10) {
-                                Text(dateModel.date.toDisplay(format: "dd"))
-                                    .font(.system(size: 15))
-                                    .fontWeight(.semibold)
-                                
-                                Text(dateModel.date.toDisplay(format: "EEE"))
-                                    .font(.system(size: 14))
-                                
-                                Circle()
-                                    .fill(Color.hexFFFFFF)
-                                    .frame(width: 8, height: 8)
-                                    .opacity(isToday ? 1 : 0)
-                            }
-                            .id(dateModel.id)
-                            .foregroundColor(isToday ? Color.hexFFFFFF : Color.Theme.Text.secondary)
-                            // MARK: Capsule Shape
-                            .frame(width: 45, height: 90)
-                            .background(
-                                ZStack {
-                                    if isToday {
-                                        Capsule()
-                                            .fill(Color.hex3C71FF)
-                                            .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
-                                    }
-                                }
-                            )
-                            .contentShape(Capsule())
-                            .onTapGesture {
-//                                withAnimation {
-                                    viewModel.select(dateModel)
-//                                }
-                            }
+                            dateView(dateModel)
                         }
                     }
                     .padding(.horizontal)
-                    .onAppear {
-                        scrollToSelectedDate(proxy: proxy)
-                    }
+                    .onAppear { scrollToSelectedDate(proxy: proxy) }
                 }
             }
             .frame(height: 90, alignment: .center)
@@ -78,6 +43,44 @@ struct RouteScheduleHeaderView: View {
         .background(Color.Theme.background)
     }
     
+    @ViewBuilder
+    private func dateView(_ dateModel: DateModel) -> some View {
+        let isToday: Bool = viewModel.isToday(dateModel)
+        
+        VStack(spacing: 10) {
+            Text(dateModel.date.toDisplay(format: "dd"))
+                .font(.system(size: 15))
+                .fontWeight(.semibold)
+            
+            Text(dateModel.date.toDisplay(format: "EEE"))
+                .font(.system(size: 14))
+            
+            Circle()
+                .fill(Color.hexFFFFFF)
+                .frame(width: 8, height: 8)
+                .opacity(isToday ? 1 : 0)
+        }
+        .id(dateModel.id)
+        .frame(width: 45, height: 90)
+        .foregroundColor(isToday ? Color.hexFFFFFF : Color.Theme.Text.secondary)
+        .background(capsuleView(isEnabled: isToday))
+        .onTapGesture { viewModel.select(dateModel) }
+    }
+    
+    @ViewBuilder
+    private func capsuleView(isEnabled: Bool) -> some View {
+        ZStack {
+            if isEnabled {
+                Capsule()
+                    .fill(Color.hex3C71FF)
+                    .matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+            }
+        }
+        .animation(.spring(), value: viewModel.date)
+    }
+}
+
+extension RouteScheduleHeaderView {
     private func scrollToSelectedDate(proxy: ScrollViewProxy) {
         guard let id = viewModel.scrollToDate?.id else {
             return

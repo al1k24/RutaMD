@@ -24,17 +24,21 @@ struct HomeSelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: Vi
         AsyncContentView(viewModel: viewModel) { output in
             let entities = output as? [Entity] ?? []
             
-            List(entities, id: \.id) { entity in
-                Button {
-                    if onSelect?.id != entity.id {
-                        onSelect = entity
-                    }
-                    
-                    dismiss()
-                } label: {
-                    Text("\(entity.name) -> id: \(entity.id)")
-                }
+            List(entities, id: \.id) {
+                cellView($0)
             }
+        }
+    }
+    
+    private func cellView(_ entity: Entity) -> some View {
+        Button {
+            if onSelect?.id != entity.id {
+                onSelect = entity
+            }
+            
+            dismiss()
+        } label: {
+            Text("\(entity.name) -> id: \(entity.id)")
         }
     }
 }

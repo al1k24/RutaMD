@@ -16,7 +16,8 @@ final class RouteScheduleViewModel: LoadableObject {
     
     private let startPoint: StationModel?
     private let station: StationModel?
-    private var date: DateModel?
+    
+    private(set) var date: DateModel?
     
     private var networkService: NetworkServiceProtocol
     private let htmlContentService: HTMLContentServiceProtocol
@@ -79,12 +80,8 @@ final class RouteScheduleViewModel: LoadableObject {
         load()
     }
     
-    func getSelectedDateValue() -> String {
+    func toDisplay() -> String {
         return (date?.date ?? Date()).toDisplay()
-    }
-    
-    func getSelectedDate() -> DateModel? {
-        return date
     }
     
     func isToday(_ model: DateModel) -> Bool {

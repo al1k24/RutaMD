@@ -25,9 +25,10 @@
 		187472242822E3F500A5E188 /* RouteScheduleItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472232822E3F500A5E188 /* RouteScheduleItemView.swift */; };
 		187472262822F38D00A5E188 /* NavigationLinkModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472252822F38D00A5E188 /* NavigationLinkModifier.swift */; };
 		187472282822F54900A5E188 /* ListRowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472272822F54900A5E188 /* ListRowModifier.swift */; };
-		1874722A2822F5D600A5E188 /* LineShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472292822F5D600A5E188 /* LineShape.swift */; };
 		1874722C2823147700A5E188 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722B2823147700A5E188 /* SeparatorView.swift */; };
 		1874722E2828360E00A5E188 /* RouteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722D2828360E00A5E188 /* RouteDetailModel.swift */; };
+		18846BAB284181DE00E8A44B /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18846BAA284181DE00E8A44B /* Line.swift */; };
+		18846BAD284182D300E8A44B /* CorneredRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18846BAC284182D300E8A44B /* CorneredRectangle.swift */; };
 		18901324281F271F00CBECA9 /* RouteScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */; };
 		18901326281F275E00CBECA9 /* RouteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901325281F275E00CBECA9 /* RouteModel.swift */; };
 		18901329281F31DE00CBECA9 /* HTMLContentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18901328281F31DE00CBECA9 /* HTMLContentService.swift */; };
@@ -75,7 +76,6 @@
 		18901389281FFD9700CBECA9 /* RegexHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890135E281FFD9700CBECA9 /* RegexHelper.swift */; };
 		1890138C2820013D00CBECA9 /* RegexError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890138B2820013D00CBECA9 /* RegexError.swift */; };
 		1890138E282007F300CBECA9 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1890138D282007F300CBECA9 /* String+.swift */; };
-		18CCB8E4281E8B1400EE8918 /* View+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CCB8E3281E8B1400EE8918 /* View+Corners.swift */; };
 		18CCB8EB281E94AD00EE8918 /* CustomTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CCB8EA281E94AD00EE8918 /* CustomTabView.swift */; };
 		18CCB8ED281E964600EE8918 /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CCB8EC281E964600EE8918 /* CustomTabBarView.swift */; };
 		18CCB8F0281E9D3A00EE8918 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CCB8EF281E9D3A00EE8918 /* LazyView.swift */; };
@@ -141,9 +141,10 @@
 		187472232822E3F500A5E188 /* RouteScheduleItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleItemView.swift; sourceTree = "<group>"; };
 		187472252822F38D00A5E188 /* NavigationLinkModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLinkModifier.swift; sourceTree = "<group>"; };
 		187472272822F54900A5E188 /* ListRowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowModifier.swift; sourceTree = "<group>"; };
-		187472292822F5D600A5E188 /* LineShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineShape.swift; sourceTree = "<group>"; };
 		1874722B2823147700A5E188 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1874722D2828360E00A5E188 /* RouteDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailModel.swift; sourceTree = "<group>"; };
+		18846BAA284181DE00E8A44B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		18846BAC284182D300E8A44B /* CorneredRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneredRectangle.swift; sourceTree = "<group>"; };
 		18901323281F271F00CBECA9 /* RouteScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteScheduleViewModel.swift; sourceTree = "<group>"; };
 		18901325281F275E00CBECA9 /* RouteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteModel.swift; sourceTree = "<group>"; };
 		18901328281F31DE00CBECA9 /* HTMLContentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLContentService.swift; sourceTree = "<group>"; };
@@ -191,7 +192,6 @@
 		1890135E281FFD9700CBECA9 /* RegexHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexHelper.swift; sourceTree = "<group>"; };
 		1890138B2820013D00CBECA9 /* RegexError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexError.swift; sourceTree = "<group>"; };
 		1890138D282007F300CBECA9 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
-		18CCB8E3281E8B1400EE8918 /* View+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Corners.swift"; sourceTree = "<group>"; };
 		18CCB8EA281E94AD00EE8918 /* CustomTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabView.swift; sourceTree = "<group>"; };
 		18CCB8EC281E964600EE8918 /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
 		18CCB8EF281E9D3A00EE8918 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
@@ -320,6 +320,15 @@
 				1874721F2821651900A5E188 /* SettingsView.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		18846BA72841808500E8A44B /* CustomShapes */ = {
+			isa = PBXGroup;
+			children = (
+				18846BAA284181DE00E8A44B /* Line.swift */,
+				18846BAC284182D300E8A44B /* CorneredRectangle.swift */,
+			);
+			path = CustomShapes;
 			sourceTree = "<group>";
 		};
 		18901327281F31C500CBECA9 /* HTML */ = {
@@ -464,9 +473,9 @@
 		18CCB8E7281E93E600EE8918 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				18CCB8EF281E9D3A00EE8918 /* LazyView.swift */,
 				18CCB8EA281E94AD00EE8918 /* CustomTabView.swift */,
 				18CCB8EC281E964600EE8918 /* CustomTabBarView.swift */,
-				187472292822F5D600A5E188 /* LineShape.swift */,
 				1874722B2823147700A5E188 /* SeparatorView.swift */,
 				18F9A339283A9875008614E3 /* SectionView.swift */,
 			);
@@ -476,14 +485,14 @@
 		18D2E5C9280C5B9600E7D474 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				18CCB8E7281E93E600EE8918 /* CustomViews */,
+				18846BA72841808500E8A44B /* CustomShapes */,
 				18D476F9280F409E00BB08F8 /* AppStateManagement */,
+				18CCB8E7281E93E600EE8918 /* CustomViews */,
 				18D2E5CA280C5BA900E7D474 /* ViewModifiers */,
 				183EAE1D283EB79800732D9E /* ViewControllerRepresentable */,
 				18E32C65279D93BB00273A04 /* Extensions */,
 				18D476EF280F363600BB08F8 /* Serialisable.swift */,
 				18CCB8FE281F149D00EE8918 /* SelectIdentifiable.swift */,
-				18CCB8EF281E9D3A00EE8918 /* LazyView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -626,7 +635,6 @@
 			children = (
 				18E32C66279D93EB00273A04 /* UIView+.swift */,
 				18D2E5DB280C6F8800E7D474 /* UIView+Transform.swift */,
-				18CCB8E3281E8B1400EE8918 /* View+Corners.swift */,
 				18CCB8FC281F014F00EE8918 /* String+Date.swift */,
 				1890138D282007F300CBECA9 /* String+.swift */,
 				18747215282027CB00A5E188 /* Array+.swift */,
@@ -786,6 +794,7 @@
 				18901326281F275E00CBECA9 /* RouteModel.swift in Sources */,
 				1890136E281FFD9700CBECA9 /* StringSelector.swift in Sources */,
 				18901324281F271F00CBECA9 /* RouteScheduleViewModel.swift in Sources */,
+				18846BAB284181DE00E8A44B /* Line.swift in Sources */,
 				18CCB8FF281F149D00EE8918 /* SelectIdentifiable.swift in Sources */,
 				18901361281FFD9700CBECA9 /* HTMLTraverser.swift in Sources */,
 				18901379281FFD9700CBECA9 /* CData.swift in Sources */,
@@ -810,6 +819,7 @@
 				1890137F281FFD9700CBECA9 /* Attribute.swift in Sources */,
 				1890137E281FFD9700CBECA9 /* Tag.swift in Sources */,
 				18CCB8FB281EDF7900EE8918 /* SelectStartPointViewModel.swift in Sources */,
+				18846BAD284182D300E8A44B /* CorneredRectangle.swift in Sources */,
 				18CCB8EB281E94AD00EE8918 /* CustomTabView.swift in Sources */,
 				18901360281FFD9700CBECA9 /* ProjectConfig.swift in Sources */,
 				18D2E5D1280C659B00E7D474 /* RouteScheduleView.swift in Sources */,
@@ -821,7 +831,6 @@
 				18EC3495282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift in Sources */,
 				18D4770B280F471300BB08F8 /* StationModel.swift in Sources */,
 				18901374281FFD9700CBECA9 /* ScriptParser.swift in Sources */,
-				18CCB8E4281E8B1400EE8918 /* View+Corners.swift in Sources */,
 				18901378281FFD9700CBECA9 /* Comment.swift in Sources */,
 				18901371281FFD9700CBECA9 /* ParseFormat.swift in Sources */,
 				18901388281FFD9700CBECA9 /* CharacterExtensions.swift in Sources */,
@@ -880,7 +889,6 @@
 				18E32C61279D935300273A04 /* HomeView.swift in Sources */,
 				18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift in Sources */,
 				18901384281FFD9700CBECA9 /* HTMLParser.swift in Sources */,
-				1874722A2822F5D600A5E188 /* LineShape.swift in Sources */,
 				1890138E282007F300CBECA9 /* String+.swift in Sources */,
 				18CCB903281F1A0000EE8918 /* DateModel.swift in Sources */,
 				187472282822F54900A5E188 /* ListRowModifier.swift in Sources */,

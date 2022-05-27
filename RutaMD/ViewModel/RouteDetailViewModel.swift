@@ -12,8 +12,8 @@ final class RouteDetailViewModel: LoadableObject {
     
     @Published private(set) var state = LoadingState<Output>.idle
     
-    private let route: RouteModel
-    private var routeDetail: RouteDetailModel
+    private(set) var route: RouteModel
+    private(set) var routeDetail: RouteDetailModel
     
     private var networkService: NetworkServiceProtocol
     private let htmlContentService: HTMLContentServiceProtocol
@@ -57,9 +57,5 @@ final class RouteDetailViewModel: LoadableObject {
     
     func getTitle() -> String {
         return "Ruta #\(route.id)"
-    }
-    
-    func getBuyURL() -> URL? {
-        return route.buyComponents.url
     }
 }
