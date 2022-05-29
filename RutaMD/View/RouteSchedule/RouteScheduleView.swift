@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RouteScheduleView: View {
+    @EnvironmentObject private var routeViewModel: RouteViewModel
     @StateObject private var viewModel: RouteScheduleViewModel
     
     @State private var selectedURL: URL?
@@ -38,7 +39,7 @@ struct RouteScheduleView: View {
     @ViewBuilder
     private func destinationView(route: RouteModel) -> some View {
         LazyView(RouteDetailView(viewModel: .init(route: route)))
-//            .environmentObject(routeViewModel)
+            .environmentObject(routeViewModel)
     }
     
     @ViewBuilder

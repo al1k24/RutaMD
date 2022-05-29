@@ -21,11 +21,16 @@ struct RouteScheduleHeaderView: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(viewModel.toDisplay())
-                .font(.title2.bold())
-                .foregroundColor(Color.Theme.Text.primary)
-                .padding(.horizontal)
-                .frame(maxWidth: .infinity, alignment: .leading)
+            HStack(alignment: .center, spacing: 0) {
+                Text(viewModel.toDisplay())
+                
+                Spacer()
+                
+                Image("ic_calendar")
+            }
+            .font(.title2.bold())
+            .foregroundColor(Color.Theme.Text.primary)
+            .padding(.horizontal)
             
             ScrollView(.horizontal, showsIndicators: false) {
                 ScrollViewReader { proxy in

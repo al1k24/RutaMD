@@ -21,7 +21,7 @@ struct HomeHeaderView: View {
                 .aspectRatio(contentMode: .fill)
                 .frame(width: size.width, height: height > 0 ? height : 0, alignment: .top)
                 .overlay(content: {
-                    ZStack(alignment: .top) {
+                    ZStack(alignment: .center) {
                         LinearGradient(colors: [
                             .clear,
                             Color.Theme.background
@@ -31,13 +31,13 @@ struct HomeHeaderView: View {
                             .foregroundColor(Color.hexFFFFFF)
                             .font(.title.bold())
                             .multilineTextAlignment(.center)
-                            .frame(height: 200, alignment: .center)
-                        // TODO: Add shadow
+                            .shadow(radius: 10)
+                            .offset(y: -45)
                     }
                 })
                 .offset(y: -minY)
         }
-        .frame(height: getRect().height * 0.4)
+        .frame(height: getRect().height * 0.45)
     }
 }
 
