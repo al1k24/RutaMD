@@ -32,7 +32,7 @@ struct RouteScheduleView: View {
                 .listStyle()
             }
         }
-        .navigationBarTitle("Rutele", displayMode: .inline)
+        .navigationBarTitle("routes", displayMode: .inline)
         .sheet(item: $selectedURL, content: handleBuyActionSheet)
     }
     

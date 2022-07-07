@@ -27,7 +27,7 @@ struct HomeHeaderView: View {
                             Color.Theme.background
                         ], startPoint: .center, endPoint: .bottom)
                         
-                        Text("Orarul rutelor din \nMoldova")
+                        Text("moldova_route_schedule")
                             .foregroundColor(Color.hexFFFFFF)
                             .font(.title.bold())
                             .multilineTextAlignment(.center)

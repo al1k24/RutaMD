@@ -15,6 +15,9 @@ protocol HTMLContentServiceProtocol {
     
     /// Parse Route detail station models
     func parse(from data: Data, completion: @escaping ((_ result: Result<[RouteDetailModel.Station], NetworkError>) -> Void))
+    
+    /// Parse Route detail place models
+    func parse(from data: Data, completion: @escaping ((_ result: Result<[RouteDetailModel.Place], NetworkError>) -> Void))
 }
 
 struct HTMLContentService: HTMLContentServiceProtocol {
@@ -68,6 +71,38 @@ struct HTMLContentService: HTMLContentServiceProtocol {
                 
                 DispatchQueue.main.async {
                     completion(.success(stations))
+                }
+            } catch {
+                print("* HTML Parser -> Error: \(error.localizedDescription)")
+                
+                DispatchQueue.main.async {
+                    completion(.failure(.custom(error.localizedDescription)))
+                }
+            }
+        }
+    }
+    
+    func parse(from data: Data, completion: @escaping ((_ result: Result<[RouteDetailModel.Place], NetworkError>) -> Void)) {
+        DispatchQueue.global(qos: .background).async {
+            guard let html = String(data: data, encoding: .utf8)?.clearHTLMTags() else {
+                completion(.failure(.decoding))
+                return
+            }
+            
+            do {
+                let nodeTree = try HTMLParser.parse(html)
+                let matchingNodes = HTMLTraverser.findElements(in: nodeTree, matching: [])
+                
+                let placeElements = matchingNodes.first? //<div class=\'schema\' ...>
+                    .childElements.first? // <div class=\'places\' ...>
+                    .childElements // [<button>]
+
+                // parse all content
+                let places = placeElements?
+                    .compactMap({ parseRouteDetailPlace(from: $0) }) ?? []
+                
+                DispatchQueue.main.async {
+                    completion(.success(places))
                 }
             } catch {
                 print("* HTML Parser -> Error: \(error.localizedDescription)")

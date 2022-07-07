@@ -48,7 +48,7 @@ struct RouteDetailItemView: View {
             .padding(.bottom, 16)
         }
         .foregroundColor(Color.Theme.Text.secondary)
-        .padding(.leading, 16)
+//        .padding(.leading, 16)
         .padding(.horizontal, 16)
         .frame(maxWidth: .infinity, alignment: .leading)
     }

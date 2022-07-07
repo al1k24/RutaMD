@@ -21,7 +21,7 @@ struct StationModel: SelectIdentifiable, Serialisable {
             return nil
         }
         
-        guard let name = json["TITLE"].string, !name.isEmpty else {
+        guard let name = json["TITLE"].string?.fixedName, !name.isEmpty else {
             return nil
         }
         

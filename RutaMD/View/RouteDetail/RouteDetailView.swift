@@ -36,8 +36,13 @@ struct RouteDetailView: View {
                     List {
                         Section {
                             HStack(alignment: .center, spacing: 16) {
-                                routeInformationView(title: "Din", subtitle: routeViewModel.startPoint?.name ?? "")
-                                routeInformationView2(title: "In", subtitle: routeViewModel.station?.name ?? "")
+                                routeInformationView(title: "from",
+                                                     subtitle: routeViewModel.startPoint?.name ?? "",
+                                                     alignment: .leading)
+                                
+                                routeInformationView(title: "to",
+                                                      subtitle: routeViewModel.station?.name ?? "",
+                                                      alignment: .trailing)
                             }
                             .padding(.vertical, 8)
                             .padding(.horizontal, 16)
@@ -53,7 +58,7 @@ struct RouteDetailView: View {
                 }
             }
         }
-        .navigationBarTitle(viewModel.getTitle(), displayMode: .inline)
+        .navigationBarTitle(LocalizedStringKey("route_\(viewModel.route.id)"), displayMode: .inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Button(action: { activeSheet = .buy }) {
@@ -80,7 +85,9 @@ struct RouteDetailView: View {
     private func handleActionSheet(_ item: ActiveSheet) -> some View {
         switch item {
         case .places:
-            RouteDetailPlacesView()
+            RouteDetailPlacesView(viewModel: .init(startPoint: routeViewModel.startPoint,
+                                                   station: routeViewModel.station,
+                                                   route: viewModel.route))
         case .buy:
             if let url = viewModel.route.buyComponents.url {
                 SFSafariView(url: url)
@@ -103,10 +110,10 @@ struct RouteDetailView: View {
     
     private func headerView() -> some View {
         HStack(alignment: .center, spacing: 24) {
-            Text("Pornire")
+            Text(LocalizedStringKey("leaving"))
                 .frame(width: 112)
             
-            Text("Informatie")
+            Text(LocalizedStringKey("information"))
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 8)
@@ -139,37 +146,22 @@ struct RouteDetailView: View {
             .frame(maxWidth: .infinity, idealHeight: 4, maxHeight: 4, alignment: .bottom)
     }
     
-    private func routeInformationView(title: String, subtitle: String) -> some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text(title)
+    private func routeInformationView(title: String, subtitle: String, alignment: HorizontalAlignment) -> some View {
+        VStack(alignment: alignment, spacing: 4) {
+            Text(LocalizedStringKey(title))
                 .font(.system(size: 12))
             
             Text(subtitle)
                 .fontWeight(.bold)
         }
-        .frame(maxWidth: .infinity, maxHeight: 72, alignment: .topLeading)
+        .frame(maxWidth: .infinity, maxHeight: 72, alignment: alignment == .leading ? .topLeading : .topTrailing)
         .padding(16)
-        .padding(.trailing, 8)
-        .clipShape(RoundedRectangle(cornerRadius: 16))
-        .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(Color.hexF2F2F2_393F4D, lineWidth: 2)
-        )
-        .foregroundColor(Color.Theme.Text.secondary)
-    }
-    
-    private func routeInformationView2(title: String, subtitle: String) -> some View {
-        VStack(alignment: .trailing, spacing: 4) {
-            Text(title)
-                .font(.system(size: 12))
-            
-            Text(subtitle)
-                .fontWeight(.bold)
-                .multilineTextAlignment(.trailing)
+        .if(alignment == .leading) {
+            $0.padding(.trailing, 8)
         }
-        .frame(maxWidth: .infinity, maxHeight: 72, alignment: .topTrailing)
-        .padding(16)
-        .padding(.leading, 8)
+        .if(alignment == .trailing) {
+            $0.padding(.leading, 8)
+        }
         .clipShape(RoundedRectangle(cornerRadius: 16))
         .overlay(
             RoundedRectangle(cornerRadius: 16, style: .continuous)

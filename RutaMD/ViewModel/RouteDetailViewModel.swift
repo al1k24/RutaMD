@@ -54,8 +54,4 @@ final class RouteDetailViewModel: LoadableObject {
             }
         }
     }
-    
-    func getTitle() -> String {
-        return "Ruta #\(route.id)"
-    }
 }

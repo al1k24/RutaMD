@@ -29,6 +29,7 @@ extension RouteModel {
         let route: String
         let routeCode: String
         let date: Date
+        let time: String
     }
     
     struct BuyComponents {

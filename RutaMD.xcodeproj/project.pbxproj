@@ -17,6 +17,9 @@
 		1848CC40279C592A00D1E91A /* RutaMDApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1848CC3F279C592A00D1E91A /* RutaMDApp.swift */; };
 		1848CC44279C592B00D1E91A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC43279C592B00D1E91A /* Assets.xcassets */; };
 		1848CC47279C592B00D1E91A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1848CC46279C592B00D1E91A /* Preview Assets.xcassets */; };
+		1862485728494BE200B68573 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1862485928494BE200B68573 /* Localizable.strings */; };
+		1862485D284955BE00B68573 /* Text+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862485C284955BE00B68573 /* Text+String.swift */; };
+		1862485F284956DC00B68573 /* Label+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862485E284956DC00B68573 /* Label+String.swift */; };
 		18747216282027CB00A5E188 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18747215282027CB00A5E188 /* Array+.swift */; };
 		18747219282034CF00A5E188 /* RouteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18747218282034CF00A5E188 /* RouteDetailView.swift */; };
 		1874721B2820350A00A5E188 /* RouteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874721A2820350A00A5E188 /* RouteDetailViewModel.swift */; };
@@ -27,6 +30,10 @@
 		187472282822F54900A5E188 /* ListRowModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187472272822F54900A5E188 /* ListRowModifier.swift */; };
 		1874722C2823147700A5E188 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722B2823147700A5E188 /* SeparatorView.swift */; };
 		1874722E2828360E00A5E188 /* RouteDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1874722D2828360E00A5E188 /* RouteDetailModel.swift */; };
+		1877C75628563C29000AFBB3 /* RouteDetailPlacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C75528563C29000AFBB3 /* RouteDetailPlacesViewModel.swift */; };
+		1877C75828564632000AFBB3 /* HTMLContentService+ParseRouteDetailPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C75728564632000AFBB3 /* HTMLContentService+ParseRouteDetailPlace.swift */; };
+		1877C75A28568833000AFBB3 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C75928568833000AFBB3 /* UIApplication+.swift */; };
+		1877C75C28568A32000AFBB3 /* ResignKeyboardOnDragGestureViewModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1877C75B28568A32000AFBB3 /* ResignKeyboardOnDragGestureViewModifier.swift */; };
 		18846BAB284181DE00E8A44B /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18846BAA284181DE00E8A44B /* Line.swift */; };
 		18846BAD284182D300E8A44B /* CorneredRectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18846BAC284182D300E8A44B /* CorneredRectangle.swift */; };
 		18846BB1284192D200E8A44B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18846BB0284192D200E8A44B /* LaunchScreen.storyboard */; };
@@ -113,7 +120,7 @@
 		18E32C67279D93EB00273A04 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C66279D93EB00273A04 /* UIView+.swift */; };
 		18E32C71279D990E00273A04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E32C70279D990E00273A04 /* ContentView.swift */; };
 		18EC3495282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3494282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift */; };
-		18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift */; };
+		18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetailStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetailStation.swift */; };
 		18EC3499282FE44500E993D3 /* RouteDetailItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC3498282FE44500E993D3 /* RouteDetailItemView.swift */; };
 		18EC349B2831097A00E993D3 /* ListStyleModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC349A2831097A00E993D3 /* ListStyleModifier.swift */; };
 		18EC349D283113F200E993D3 /* RouteDetailPlacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EC349C283113F200E993D3 /* RouteDetailPlacesView.swift */; };
@@ -134,6 +141,11 @@
 		1848CC43279C592B00D1E91A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1848CC46279C592B00D1E91A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1848CC4D279C593D00D1E91A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		1862485828494BE200B68573 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1862485A28494BE600B68573 /* ro */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ro; path = ro.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1862485B28494BE700B68573 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1862485C284955BE00B68573 /* Text+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+String.swift"; sourceTree = "<group>"; };
+		1862485E284956DC00B68573 /* Label+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+String.swift"; sourceTree = "<group>"; };
 		18747215282027CB00A5E188 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		18747218282034CF00A5E188 /* RouteDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailView.swift; sourceTree = "<group>"; };
 		1874721A2820350A00A5E188 /* RouteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailViewModel.swift; sourceTree = "<group>"; };
@@ -144,6 +156,10 @@
 		187472272822F54900A5E188 /* ListRowModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowModifier.swift; sourceTree = "<group>"; };
 		1874722B2823147700A5E188 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		1874722D2828360E00A5E188 /* RouteDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailModel.swift; sourceTree = "<group>"; };
+		1877C75528563C29000AFBB3 /* RouteDetailPlacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailPlacesViewModel.swift; sourceTree = "<group>"; };
+		1877C75728564632000AFBB3 /* HTMLContentService+ParseRouteDetailPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTMLContentService+ParseRouteDetailPlace.swift"; sourceTree = "<group>"; };
+		1877C75928568833000AFBB3 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		1877C75B28568A32000AFBB3 /* ResignKeyboardOnDragGestureViewModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResignKeyboardOnDragGestureViewModifier.swift; sourceTree = "<group>"; };
 		18846BAA284181DE00E8A44B /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		18846BAC284182D300E8A44B /* CorneredRectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorneredRectangle.swift; sourceTree = "<group>"; };
 		18846BB0284192D200E8A44B /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -230,7 +246,7 @@
 		18E32C66279D93EB00273A04 /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		18E32C70279D990E00273A04 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18EC3494282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTMLContentService+ParseRoute.swift"; sourceTree = "<group>"; };
-		18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTMLContentService+ParseRouteDetail.swift"; sourceTree = "<group>"; };
+		18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetailStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTMLContentService+ParseRouteDetailStation.swift"; sourceTree = "<group>"; };
 		18EC3498282FE44500E993D3 /* RouteDetailItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailItemView.swift; sourceTree = "<group>"; };
 		18EC349A2831097A00E993D3 /* ListStyleModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStyleModifier.swift; sourceTree = "<group>"; };
 		18EC349C283113F200E993D3 /* RouteDetailPlacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteDetailPlacesView.swift; sourceTree = "<group>"; };
@@ -295,6 +311,7 @@
 				1848CC43279C592B00D1E91A /* Assets.xcassets */,
 				1848CC45279C592B00D1E91A /* Preview Content */,
 				18846BB0284192D200E8A44B /* LaunchScreen.storyboard */,
+				1862485928494BE200B68573 /* Localizable.strings */,
 			);
 			path = RutaMD;
 			sourceTree = "<group>";
@@ -509,6 +526,7 @@
 				187472252822F38D00A5E188 /* NavigationLinkModifier.swift */,
 				187472272822F54900A5E188 /* ListRowModifier.swift */,
 				18EC349A2831097A00E993D3 /* ListStyleModifier.swift */,
+				1877C75B28568A32000AFBB3 /* ResignKeyboardOnDragGestureViewModifier.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -532,6 +550,7 @@
 				1823AAAA28109C4F00B5A170 /* SelectStationViewModel.swift */,
 				18CCB8FA281EDF7900EE8918 /* SelectStartPointViewModel.swift */,
 				18CCB904281F1C6000EE8918 /* SelectDateViewModel.swift */,
+				1877C75528563C29000AFBB3 /* RouteDetailPlacesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -643,6 +662,9 @@
 				18747215282027CB00A5E188 /* Array+.swift */,
 				183EAE1E283EBDC700732D9E /* URL+Identifiable.swift */,
 				183EAE20283ED0AE00732D9E /* String+URL.swift */,
+				1862485C284955BE00B68573 /* Text+String.swift */,
+				1862485E284956DC00B68573 /* Label+String.swift */,
+				1877C75928568833000AFBB3 /* UIApplication+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -651,7 +673,8 @@
 			isa = PBXGroup;
 			children = (
 				18EC3494282FCCD400E993D3 /* HTMLContentService+ParseRoute.swift */,
-				18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift */,
+				18EC3496282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetailStation.swift */,
+				1877C75728564632000AFBB3 /* HTMLContentService+ParseRouteDetailPlace.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -716,6 +739,8 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
+				ro,
 				Base,
 			);
 			mainGroup = 1848CC33279C592A00D1E91A;
@@ -733,6 +758,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1862485728494BE200B68573 /* Localizable.strings in Resources */,
 				1848CC47279C592B00D1E91A /* Preview Assets.xcassets in Resources */,
 				18846BB1284192D200E8A44B /* LaunchScreen.storyboard in Resources */,
 				1848CC44279C592B00D1E91A /* Assets.xcassets in Resources */,
@@ -801,6 +827,7 @@
 				18846BAB284181DE00E8A44B /* Line.swift in Sources */,
 				18CCB8FF281F149D00EE8918 /* SelectIdentifiable.swift in Sources */,
 				18901361281FFD9700CBECA9 /* HTMLTraverser.swift in Sources */,
+				1877C75A28568833000AFBB3 /* UIApplication+.swift in Sources */,
 				18901379281FFD9700CBECA9 /* CData.swift in Sources */,
 				1890136F281FFD9700CBECA9 /* NodeSelector.swift in Sources */,
 				18CCB905281F1C6000EE8918 /* SelectDateViewModel.swift in Sources */,
@@ -825,6 +852,7 @@
 				18CCB8FB281EDF7900EE8918 /* SelectStartPointViewModel.swift in Sources */,
 				18846BAD284182D300E8A44B /* CorneredRectangle.swift in Sources */,
 				18CCB8EB281E94AD00EE8918 /* CustomTabView.swift in Sources */,
+				1862485D284955BE00B68573 /* Text+String.swift in Sources */,
 				18901360281FFD9700CBECA9 /* ProjectConfig.swift in Sources */,
 				18D2E5D1280C659B00E7D474 /* RouteScheduleView.swift in Sources */,
 				18D2E5DC280C6F8800E7D474 /* UIView+Transform.swift in Sources */,
@@ -843,6 +871,8 @@
 				18901377281FFD9700CBECA9 /* DocumentTypeNode.swift in Sources */,
 				1890136C281FFD9700CBECA9 /* TagNameStringSelectorBuilder.swift in Sources */,
 				18D47704280F462600BB08F8 /* NetworkError.swift in Sources */,
+				1877C75828564632000AFBB3 /* HTMLContentService+ParseRouteDetailPlace.swift in Sources */,
+				1862485F284956DC00B68573 /* Label+String.swift in Sources */,
 				18D47716280F516700BB08F8 /* APIResponseType.swift in Sources */,
 				18CCB8ED281E964600EE8918 /* CustomTabBarView.swift in Sources */,
 				18901365281FFD9700CBECA9 /* ElementSelector.swift in Sources */,
@@ -850,6 +880,7 @@
 				1890137C281FFD9700CBECA9 /* NodeType.swift in Sources */,
 				18901387281FFD9700CBECA9 /* StringExtensions.swift in Sources */,
 				1874721B2820350A00A5E188 /* RouteDetailViewModel.swift in Sources */,
+				1877C75C28568A32000AFBB3 /* ResignKeyboardOnDragGestureViewModifier.swift in Sources */,
 				18D4770F280F50FD00BB08F8 /* APIRoute.swift in Sources */,
 				1890137B281FFD9700CBECA9 /* Element.swift in Sources */,
 				18F9A33A283A9875008614E3 /* SectionView.swift in Sources */,
@@ -889,9 +920,10 @@
 				18747219282034CF00A5E188 /* RouteDetailView.swift in Sources */,
 				18901329281F31DE00CBECA9 /* HTMLContentService.swift in Sources */,
 				18EC349B2831097A00E993D3 /* ListStyleModifier.swift in Sources */,
+				1877C75628563C29000AFBB3 /* RouteDetailPlacesViewModel.swift in Sources */,
 				18901366281FFD9700CBECA9 /* CDataSelector.swift in Sources */,
 				18E32C61279D935300273A04 /* HomeView.swift in Sources */,
-				18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetail.swift in Sources */,
+				18EC3497282FCD6B00E993D3 /* HTMLContentService+ParseRouteDetailStation.swift in Sources */,
 				18901384281FFD9700CBECA9 /* HTMLParser.swift in Sources */,
 				1890138E282007F300CBECA9 /* String+.swift in Sources */,
 				18CCB903281F1A0000EE8918 /* DateModel.swift in Sources */,
@@ -901,6 +933,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		1862485928494BE200B68573 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1862485828494BE200B68573 /* en */,
+				1862485A28494BE600B68573 /* ro */,
+				1862485B28494BE700B68573 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1848CC48279C592B00D1E91A /* Debug */ = {

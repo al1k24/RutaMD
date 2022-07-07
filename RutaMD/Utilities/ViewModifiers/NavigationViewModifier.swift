@@ -39,8 +39,42 @@ struct NavigationViewModifier: ViewModifier {
     }
 }
 
+struct CustomNavigationViewModifier: ViewModifier {
+    @Environment(\.dismiss) private var dismiss
+    
+    private let title: String
+    private let isEnabled: Bool
+    
+    init(title: String, isEnabled: Bool) {
+        self.title = title
+        self.isEnabled = isEnabled
+    }
+    
+    func body(content: Content) -> some View {
+        if isEnabled {
+            NavigationView {
+                content
+                    .navigationBarTitle(LocalizedStringKey(title), displayMode: .inline)
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button("сlose") {
+                                dismiss()
+                            }
+                        }
+                    }
+            }
+        } else {
+            content
+        }
+    }
+}
+
 extension View {
     func navigationView() -> some View {
         self.modifier(NavigationViewModifier())
+    }
+    
+    func navigationView(title: String, isEnabled: Bool) -> some View {
+        self.modifier(CustomNavigationViewModifier(title: title, isEnabled: isEnabled))
     }
 }

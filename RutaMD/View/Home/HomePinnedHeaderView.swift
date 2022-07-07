@@ -25,21 +25,24 @@ struct HomePinnedHeaderView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 8) {
-                buttonView(title: routeViewModel.startPoint?.name ?? "De unde",
+                buttonView(title: routeViewModel.startPoint?.name,
+                           placeholder: "whence",
                            icon: routeViewModel.startPoint == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = .selectStartPoint
                 }
                 
                 SeparatorView()
                 
-                buttonView(title: routeViewModel.station?.name ?? "Direcție",
+                buttonView(title: routeViewModel.station?.name,
+                           placeholder: "direction",
                            icon: routeViewModel.station == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = routeViewModel.startPoint == nil ? .configure : .selectStation
                 }
                 
                 SeparatorView()
                 
-                buttonView(title: routeViewModel.date?.name ?? "Data",
+                buttonView(title: routeViewModel.date?.name,
+                           placeholder: "date",
                            icon: routeViewModel.date == nil ? "calendar.badge.plus" : "calendar") {
                     activeSheet = routeViewModel.station == nil ? .configure : .selectDate
                 }
@@ -50,7 +53,7 @@ struct HomePinnedHeaderView: View {
             HomeSearchButtonView(isValid: routeViewModel.isValidSearch(),
                                  action: { activeSheet = .configure },
                                  destination: { destinationView() }) {
-                Text("GĂSEȘTE RUTE")
+                Text("routes_search")
                     .fontWeight(.semibold)
                     .foregroundColor(Color.hexFFFFFF)
                     .frame(maxWidth: .infinity, idealHeight: 56, alignment: .center)
@@ -73,15 +76,21 @@ struct HomePinnedHeaderView: View {
         switch item {
         case .selectStartPoint:
             HomeSelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
+                           selectedEntity: routeViewModel.startPoint,
+                           navigationView: true,
                            onSelect: $routeViewModel.startPoint)
         case .selectStation:
             HomeSelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
                                                              stations: $routeViewModel.stations),
+                           selectedEntity: routeViewModel.station,
+                           navigationView: true,
                            onSelect: $routeViewModel.station)
         case .selectDate:
             HomeSelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
                                                       station: routeViewModel.station,
                                                       dates: $routeViewModel.dates),
+                           selectedEntity: routeViewModel.date,
+                           navigationView: true,
                            onSelect: $routeViewModel.date)
         case .configure:
             HomeSearchView()
@@ -97,9 +106,9 @@ struct HomePinnedHeaderView: View {
     }
     
     @ViewBuilder
-    private func buttonView(title: String, icon: String, action: @escaping (() -> Void)) -> some View {
+    private func buttonView(title: String?, placeholder: String, icon: String, action: @escaping (() -> Void)) -> some View {
         Button(action: action) {
-            Label(title, systemImage: icon)
+            Label(title, placeholder: placeholder, systemImage: icon)
             .frame(maxWidth: .infinity, idealHeight: 36, alignment: .leading)
         }
         .foregroundColor(Color.Theme.Text.secondary)

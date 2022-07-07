@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct SectionView<Content: View>: View {
-    private let title: String
+    private let title: LocalizedStringKey
     private let content: Content
+
     
-    init(title: String, @ViewBuilder content: () -> Content) {
+    init(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) {
         self.title = title
         self.content = content()
     }
@@ -37,7 +38,7 @@ struct SectionView<Content: View>: View {
 struct SectionView_Previews: PreviewProvider {
     static var previews: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            SectionView(title: "Test") {
+            SectionView("Test") {
                 Button("asdasd") {
                     
                 }

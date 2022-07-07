@@ -16,9 +16,9 @@ struct HomeSearchView: View {
         
         var title: String {
             switch self {
-            case .startPoint: return "Alege locația"
-            case .station: return "Alege direcția"
-            case .date: return "Alege data"
+            case .startPoint: return "choose_the_location"
+            case .station: return "choose_the_direction"
+            case .date: return "choose_a_date"
             }
         }
     }
@@ -31,15 +31,15 @@ struct HomeSearchView: View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 16) {
-                    SectionView(title: "Locația") {
+                    SectionView("location") {
                         selectView(.startPoint, title: routeViewModel.startPoint?.name)
                     }
                     
-                    SectionView(title: "Direcția") {
+                    SectionView("direction") {
                         selectView(.station, title: routeViewModel.station?.name)
                     }
                     
-                    SectionView(title: "Data") {
+                    SectionView("date") {
                         selectView(.date, title: routeViewModel.date?.name)
                     }
                 }
@@ -47,16 +47,16 @@ struct HomeSearchView: View {
             }
             .background(Color.Theme.background)
             .foregroundColor(Color.Theme.Text.secondary)
-            .navigationBarTitle("Configurare", displayMode: .inline)
+            .navigationBarTitle("configuration", displayMode: .inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
-                    Button("Cancel") {
+                    Button("cancel") {
                         dismiss()
                     }
                 }
                 
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button("Search") {
+                    Button("search") {
                         dismiss()
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -72,7 +72,7 @@ struct HomeSearchView: View {
     private func selectView(_ type: DestinationType, title: String?) -> some View {
         NavigationLink(destination: {
             LazyView(destinationView(type))
-                .navigationBarTitle(type.title, displayMode: .inline)
+                .navigationBarTitle(LocalizedStringKey(type.title), displayMode: .inline)
         }) { sectionItem(title: title, placeholder: type.title) }
     }
     
@@ -81,22 +81,28 @@ struct HomeSearchView: View {
         switch type {
         case .startPoint:
             HomeSelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
+                           selectedEntity: routeViewModel.startPoint,
+                           navigationView: false,
                            onSelect: $routeViewModel.startPoint)
         case .station:
             HomeSelectView(viewModel: SelectStationViewModel(startPoint: routeViewModel.startPoint,
                                                              stations: $routeViewModel.stations),
+                           selectedEntity: routeViewModel.station,
+                           navigationView: false,
                            onSelect: $routeViewModel.station)
         case .date:
             HomeSelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
                                                       station: routeViewModel.station,
                                                       dates: $routeViewModel.dates),
+                           selectedEntity: routeViewModel.date, navigationView: false,
                            onSelect: $routeViewModel.date)
         }
     }
     
+    @ViewBuilder
     private func sectionItem(title: String?, placeholder: String) -> some View {
         HStack(alignment: .center, spacing: 4) {
-            Text(title ?? placeholder)
+            Text(title, placeholder: placeholder)
                 .multilineTextAlignment(.leading)
                 .foregroundColor(title == nil ? Color.Theme.Text.secondary : Color.Theme.Text.primary)
             

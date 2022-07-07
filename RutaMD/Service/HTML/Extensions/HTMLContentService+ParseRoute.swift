@@ -55,7 +55,8 @@ extension HTMLContentService {
                      price: price,
                      components: .init(route: components.route,
                                        routeCode: components.routeCode,
-                                       date: components.date),
+                                       date: components.date,
+                                       time: time),
                      buyComponents: .init(name: buyComponents.name,
                                           url: buyComponents.url))
     }
@@ -66,6 +67,7 @@ extension HTMLContentService {
     
     private func parseRouteName(from element: Element) -> String? {
         return element.childElements[safe: 1]?.childElements[safe: 0]?.textNodes.first?.text
+            .fixedName
     }
     
     private func parseRouteInfo(from name: String) -> (startPoint: String, destination: String)? {

@@ -13,14 +13,6 @@ extension View {
     }
     
     func getSafeArea() -> UIEdgeInsets {
-        if #available(iOS 15, *) {
-            guard let screen = UIApplication.shared.connectedScenes.first as? UIWindowScene else{
-                return .zero
-            }
-            
-            return screen.windows.first?.safeAreaInsets ?? .zero
-        } else {
-            return UIApplication.shared.windows.first?.safeAreaInsets ?? .zero
-        }
+        return UIApplication.shared.safeArea
     }
 }

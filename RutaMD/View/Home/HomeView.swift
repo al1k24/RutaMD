@@ -21,7 +21,7 @@ struct HomeView: View {
                 
                 LazyVStack(pinnedViews: [.sectionHeaders]) {
                     Section {
-                        Text("Ultimele rute")
+                        Text("last_routes")
                     } header: {
                         HomePinnedHeaderView()
                             .offset(y: headerOffsets.1 > 0 ? 0 : -headerOffsets.1 / 8)

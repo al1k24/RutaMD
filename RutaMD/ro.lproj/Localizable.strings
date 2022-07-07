@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  RutaMD
+
+  Created by Alik Moldovanu on 02.06.2022.
+  
+*/
+
+"last_routes" = "Ultimele rute";
+"moldova_route_schedule" = "Orarul rutelor din Moldova";
+"whence" = "Whence";
+"location" = "Locația";
+"direction" = "Direcție";
+"date" = "Data";
+"routes_search" = "GĂSEȘTE RUTE";
+"choose_the_location" = "Alege locația";
+"choose_the_direction" = "Alege direcția";
+"choose_a_date" = "Alege data";
+"configuration" = "Configurare";
+"cancel" = "Cancel";
+"search" = "Caută";
+"routes" = "Rutele";
+"route_%@" = "Ruta #%@";
+"leaving" = "Pornire";
+"information" = "Informație";
+"from" = "Din";
+"to" = "În";
+"available_seats" = "Locuri disponibile";
+"сlose" = "Închide";

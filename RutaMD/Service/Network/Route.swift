@@ -9,9 +9,9 @@ import Foundation
 import Alamofire
 
 struct Route {
-    let method: HTTPMethod
-    let path: String
-    let params: Parameters?
+    private(set) var method: HTTPMethod
+    private(set) var path: String
+    private(set) var params: Parameters?
     
     init(_ method: HTTPMethod = .get, path: String, params: Parameters? = nil) {
         self.method = method
