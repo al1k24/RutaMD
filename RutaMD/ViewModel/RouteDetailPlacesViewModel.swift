@@ -45,8 +45,8 @@ final class RouteDetailPlacesViewModel: LoadableObject {
                                                startPoint: startPoint.id,
                                                destination: station.id,
                                                routeCode: route.components.routeCode,
-                                               date: route.components.date.toDisplay(format: "dd.MM.yyyy"), //xx.xx.xxxx
-                                               time: route.components.time) //xx:xx
+                                               date: route.components.date.toDisplay(format: "dd.MM.yyyy"),
+                                               time: route.components.time)
         networkService.request(route: route) { [weak self] (result: Result<Data, NetworkError>) in
             switch result {
             case .success(let data):

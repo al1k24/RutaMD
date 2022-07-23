@@ -110,18 +110,15 @@ extension HTMLContentService {
             return nil
         }
         
-        guard let name = childElement.textNodes.first?.text else {
-            return nil
-        }
+        let url = childElement.openingTag.tagName == "a"
+            ? childElement.openingTag.attributes["href"]?.value?.addBaseURL.toValidURL()
+            : nil
         
-        if childElement.openingTag.tagName == "a" {
-            let url = childElement.openingTag.attributes["href"]?.value
-            return (name: name, url: url?.addBaseURL.toValidURL())
-        } else if childElement.openingTag.tagName == "span" {
-            return (name: name, url: nil)
-        }
+        let name: String = url == nil
+            ? "canceled"
+            : "buy"
         
-        return nil
+        return (name: name, url: url)
     }
     
     private func parseRouteComponents(from element: Element) -> (route: String, routeCode: String, date: Date)? {

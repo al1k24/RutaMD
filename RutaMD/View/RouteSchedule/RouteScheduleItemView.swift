@@ -121,12 +121,12 @@ struct RouteScheduleItemView: View {
     @ViewBuilder
     private func buyButtonView() -> some View {
         if let url = routeModel.buyComponents.url {
-            Button(routeModel.buyComponents.name) {
+            Button(LocalizedStringKey(routeModel.buyComponents.name)) {
                 selectedURL = url
             }
             .buttonStyle(.plain)
         } else {
-            Text(routeModel.buyComponents.name)
+            Text(LocalizedStringKey(routeModel.buyComponents.name))
         }
     }
 }

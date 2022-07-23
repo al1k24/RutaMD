@@ -67,7 +67,8 @@ struct RouteDetailView: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 24, height: 24)
                 }
-                .foregroundColor(Color.hex3C71FF)
+                .foregroundColor(Color.hex3C71FF.opacity(viewModel.route.buyComponents.url == nil ? 0.5 : 1.0))
+                .disabled(viewModel.route.buyComponents.url == nil)
                 
                 Button(action: { activeSheet = .places }) {
                     Image(systemName: "person.2")
@@ -128,15 +129,21 @@ struct RouteDetailView: View {
     
     private func buyButtonView() -> some View {
         Button(action: { activeSheet = .buy }) {
-            Label(viewModel.route.price, systemImage: "cart")
-                .font(.headline.bold())
+            if viewModel.route.buyComponents.url != nil {
+                Label(viewModel.route.price, systemImage: "cart")
+                    .font(.headline.bold())
+            } else {
+                Text(LocalizedStringKey(viewModel.route.buyComponents.name))
+                    .font(.headline.bold())
+            }
         }
         .id("bottomBuyButton")
         .frame(maxWidth: .infinity, idealHeight: 56, maxHeight: 56, alignment: .center)
-        .foregroundColor(Color.hexFFFFFF)
-        .background(Color.hex3C71FF)
+        .foregroundColor(viewModel.route.buyComponents.url != nil ? Color.hexFFFFFF : Color.hexFF364F)
+        .background(viewModel.route.buyComponents.url != nil ? Color.hex3C71FF : Color.hexF2F2F2_393F4D)
         .cornerRadius(16)
         .padding(.horizontal, 32)
+        .disabled(viewModel.route.buyComponents.url == nil)
     }
     
     private func hLineView() -> some View {
