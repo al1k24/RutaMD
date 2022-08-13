@@ -20,11 +20,17 @@ final class SelectDateViewModel: LoadableObject {
     private var networkService: NetworkServiceProtocol
     
     init(startPoint: StationModel?, station: StationModel?, dates: Binding<Output>) {
+        LOG("* Success")
+        
         self.startPoint = startPoint
         self.station = station
         self._dates = dates
         
         self.networkService = NetworkService()
+    }
+    
+    deinit {
+        LOG("* Success")
     }
     
     func load() {

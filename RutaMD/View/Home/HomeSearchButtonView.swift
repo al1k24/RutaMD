@@ -26,11 +26,15 @@ struct HomeSearchButtonView<Content: View, Destination: View>: View {
         if isValid {
             NavigationLink(destination: destination) {
                 content
+                    .onTapGesture {
+                        UIDevice.vibrate(.soft)
+                    }
             }
         } else {
-            Button(action: action) {
-                content
-            }
+            Button(action: {
+                action()
+                UIDevice.vibrate(.soft)
+            }, label: { content })
         }
     }
 }

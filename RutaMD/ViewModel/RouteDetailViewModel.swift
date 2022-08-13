@@ -19,11 +19,17 @@ final class RouteDetailViewModel: LoadableObject {
     private let htmlContentService: HTMLContentServiceProtocol
     
     init(route: RouteModel) {
+        LOG("* Success")
+        
         self.route = route
         self.routeDetail = .init(id: route.id, name: route.name, stations: [])
         
         self.networkService = NetworkService()
         self.htmlContentService = HTMLContentService()
+    }
+    
+    deinit {
+        LOG("* Success")
     }
     
     func load() {

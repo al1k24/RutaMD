@@ -31,8 +31,20 @@ final class RouteViewModel: ObservableObject {
     
     @Published var isActiveQuickSearch: Bool = false
     
+    public var isValidSearch: Bool {
+        return startPoint != nil
+            && station != nil
+            && date != nil
+    }
+    
     init() {
+        LOG("* Success")
+        
         loadStartPoints()
+    }
+    
+    deinit {
+        LOG("* Success")
     }
     
     private func loadStartPoints() {
@@ -60,11 +72,5 @@ final class RouteViewModel: ObservableObject {
                 self.startPoint = stations.first
             }
         }
-    }
-    
-    public func isValidSearch() -> Bool {
-        return startPoint != nil
-            && station != nil
-            && date != nil
     }
 }

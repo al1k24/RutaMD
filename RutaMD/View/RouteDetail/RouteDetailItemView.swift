@@ -13,8 +13,6 @@ struct RouteDetailItemView: View {
     private let isLastItem: Bool
     
     init(station: RouteDetailModel.Station, isLast: Bool = false) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self.station = station
         self.isLastItem = isLast
     }

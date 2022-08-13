@@ -17,10 +17,16 @@ final class SelectStationViewModel: LoadableObject {
     private var networkService: NetworkServiceProtocol
     
     init(startPoint: StationModel?, stations: Binding<Output>) {
+        LOG("* Success")
+        
         self.startPoint = startPoint
         self._stations = stations
         
         self.networkService = NetworkService()
+    }
+    
+    deinit {
+        LOG("* Success")
     }
     
     func load() {

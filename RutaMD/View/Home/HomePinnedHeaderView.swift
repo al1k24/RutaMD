@@ -19,13 +19,12 @@ struct HomePinnedHeaderView: View {
     }
     
     @State private var activeSheet: ActiveSheet?
-    
-//    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
+    @State private var isReadySearch: Bool = false
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             VStack(alignment: .leading, spacing: 8) {
-                buttonView(title: routeViewModel.startPoint?.name,
+                selectView(title: routeViewModel.startPoint?.name,
                            placeholder: "whence",
                            icon: routeViewModel.startPoint == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = .selectStartPoint
@@ -33,7 +32,7 @@ struct HomePinnedHeaderView: View {
                 
                 SeparatorView()
                 
-                buttonView(title: routeViewModel.station?.name,
+                selectView(title: routeViewModel.station?.name,
                            placeholder: "direction",
                            icon: routeViewModel.station == nil ? "circle.circle" : "circle.circle.fill") {
                     activeSheet = routeViewModel.startPoint == nil ? .configure : .selectStation
@@ -41,7 +40,7 @@ struct HomePinnedHeaderView: View {
                 
                 SeparatorView()
                 
-                buttonView(title: routeViewModel.date?.name,
+                selectView(title: routeViewModel.date?.name,
                            placeholder: "date",
                            icon: routeViewModel.date == nil ? "calendar.badge.plus" : "calendar") {
                     activeSheet = routeViewModel.station == nil ? .configure : .selectDate
@@ -50,13 +49,14 @@ struct HomePinnedHeaderView: View {
             .padding(.top, 16)
             .padding(.horizontal)
             
-            HomeSearchButtonView(isValid: routeViewModel.isValidSearch(),
-                                 action: { activeSheet = .configure },
-                                 destination: { destinationView() }) {
+            Button(action: handleSearchButtonAction) {
                 Text("routes_search")
                     .fontWeight(.semibold)
                     .foregroundColor(Color.hexFFFFFF)
                     .frame(maxWidth: .infinity, idealHeight: 56, alignment: .center)
+            }
+            .navigationLink(isActive: $isReadySearch) {
+                destinationView()
             }
             .background(Color.hex3C71FF)
         }
@@ -67,12 +67,14 @@ struct HomePinnedHeaderView: View {
                 .stroke(Color.hexF2F2F2_393F4D, lineWidth: 2)
         )
         .padding(.horizontal, 32)
-        .sheet(item: $activeSheet, content: handleActionSheet)
-        .navigationLink(isActive: $routeViewModel.isActiveQuickSearch, { destinationView() })
+        .sheet(item: $activeSheet, content: actionSheetView)
+        .navigationLink(isActive: $routeViewModel.isActiveQuickSearch) {
+            destinationView()
+        }
     }
     
     @ViewBuilder
-    private func handleActionSheet(_ item: ActiveSheet) -> some View {
+    private func actionSheetView(_ item: ActiveSheet) -> some View {
         switch item {
         case .selectStartPoint:
             HomeSelectView(viewModel: SelectStartPointViewModel(startPoints: routeViewModel.startPoints),
@@ -87,8 +89,8 @@ struct HomePinnedHeaderView: View {
                            onSelect: $routeViewModel.station)
         case .selectDate:
             HomeSelectView(viewModel: SelectDateViewModel(startPoint: routeViewModel.startPoint,
-                                                      station: routeViewModel.station,
-                                                      dates: $routeViewModel.dates),
+                                                          station: routeViewModel.station,
+                                                          dates: $routeViewModel.dates),
                            selectedEntity: routeViewModel.date,
                            navigationView: true,
                            onSelect: $routeViewModel.date)
@@ -106,12 +108,22 @@ struct HomePinnedHeaderView: View {
     }
     
     @ViewBuilder
-    private func buttonView(title: String?, placeholder: String, icon: String, action: @escaping (() -> Void)) -> some View {
-        Button(action: action) {
+    private func selectView(title: String?, placeholder: String, icon: String, action: @escaping (() -> Void)) -> some View {
+        Button(action: { action(); UIDevice.vibrate(.selection) }) {
             Label(title, placeholder: placeholder, systemImage: icon)
-            .frame(maxWidth: .infinity, idealHeight: 36, alignment: .leading)
+                .frame(maxWidth: .infinity, idealHeight: 36, alignment: .leading)
         }
         .foregroundColor(Color.Theme.Text.secondary)
+    }
+    
+    private func handleSearchButtonAction() {
+        if !routeViewModel.isValidSearch {
+            activeSheet = .configure
+        } else {
+            isReadySearch.toggle()
+        }
+        
+        UIDevice.vibrate(.soft)
     }
 }
 

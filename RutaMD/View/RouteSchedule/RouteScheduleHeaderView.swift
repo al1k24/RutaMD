@@ -14,8 +14,6 @@ struct RouteScheduleHeaderView: View {
     @Namespace private var animation
     
     init(viewModel: RouteScheduleViewModel) {
-//        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self.viewModel = viewModel
     }
     
@@ -69,7 +67,10 @@ struct RouteScheduleHeaderView: View {
         .frame(width: 45, height: 90)
         .foregroundColor(isToday ? Color.hexFFFFFF : Color.Theme.Text.secondary)
         .background(capsuleView(isEnabled: isToday))
-        .onTapGesture { viewModel.select(dateModel) }
+        .onTapGesture {
+            viewModel.select(dateModel)
+            UIDevice.vibrate(.light)
+        }
     }
     
     @ViewBuilder

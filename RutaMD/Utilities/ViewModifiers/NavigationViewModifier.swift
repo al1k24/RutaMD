@@ -14,8 +14,6 @@ struct NavigationViewModifier: ViewModifier {
                 .navigationBarHidden(true)
         }
         .onAppear {
-            print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-            
             navigationBarColors(background: UIColor(named: "background"),
                                 titleColor: UIColor(named: "hex3C71FF"),
                                 tintColor: UIColor(named: "hex3C71FF"))

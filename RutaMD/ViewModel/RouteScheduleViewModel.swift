@@ -25,6 +25,8 @@ final class RouteScheduleViewModel: LoadableObject {
     public var scrollToDate: DateModel?
     
     init(startPoint: StationModel?, station: StationModel?, date: DateModel?) {
+        LOG("* Success")
+        
         self.startPoint = startPoint
         self.station = station
         self.date = date
@@ -33,6 +35,10 @@ final class RouteScheduleViewModel: LoadableObject {
         
         self.networkService = NetworkService()
         self.htmlContentService = HTMLContentService()
+    }
+    
+    deinit {
+        LOG("* Success")
     }
     
     func load() {

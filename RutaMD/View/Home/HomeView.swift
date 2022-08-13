@@ -12,8 +12,6 @@ struct HomeView: View {
     
     @State private var headerOffsets: (CGFloat, CGFloat) = (0, 0)
     
-    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
-    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 0) {

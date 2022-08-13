@@ -15,8 +15,6 @@ struct RouteScheduleItemView: View {
     @Binding private var selectedURL: URL?
     
     init(routeModel: RouteModel, selectedURL: Binding<URL?>) {
-//        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self.routeModel = routeModel
         self._selectedURL = selectedURL
     }
@@ -103,10 +101,19 @@ struct RouteScheduleItemView: View {
             
             Spacer()
             
-            buyButtonView()
-                .padding(.horizontal, 24)
-                .frame(height: 56)
-                .foregroundColor(routeModel.buyComponents.url == nil ? Color.hexFF364F : Color.hex1BAA1A)
+            Button(action: {
+                selectedURL = routeModel.buyComponents.url
+                UIDevice.vibrate(.soft)
+            }) {
+                Image(systemName: routeModel.buyComponents.url != nil ? "cart.badge.plus" : "cart.badge.minus")
+                    .resizable()
+                    .scaledToFill()
+                    .padding()
+                    .frame(width: 56, height: 56)
+            }
+            .buttonStyle(.plain)
+            .padding(.trailing, 12)
+            .foregroundColor(routeModel.buyComponents.url == nil ? Color.hexFF364F : Color.hex1BAA1A)
         }
     }
     
@@ -116,17 +123,5 @@ struct RouteScheduleItemView: View {
             .frame(width: 3, height: 24, alignment: .leading)
             .cornerRadius(4, corners: [.topRight, .bottomRight])
             .offset(y: 24)
-    }
-    
-    @ViewBuilder
-    private func buyButtonView() -> some View {
-        if let url = routeModel.buyComponents.url {
-            Button(LocalizedStringKey(routeModel.buyComponents.name)) {
-                selectedURL = url
-            }
-            .buttonStyle(.plain)
-        } else {
-            Text(LocalizedStringKey(routeModel.buyComponents.name))
-        }
     }
 }

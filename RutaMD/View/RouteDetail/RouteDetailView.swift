@@ -19,13 +19,18 @@ struct RouteDetailView: View {
         var id: Int {
             return hashValue
         }
+        
+        var icon: String {
+            switch self {
+            case .buy: return "cart"
+            case .places: return "person.2"
+            }
+        }
     }
     
     @State private var activeSheet: ActiveSheet?
     
     init(viewModel: RouteDetailViewModel) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self._viewModel = .init(wrappedValue: viewModel)
     }
     
@@ -61,25 +66,28 @@ struct RouteDetailView: View {
         .navigationBarTitle(LocalizedStringKey("route_\(viewModel.route.id)"), displayMode: .inline)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
-                Button(action: { activeSheet = .buy }) {
-                    Image(systemName: "cart")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                }
-                .foregroundColor(Color.hex3C71FF.opacity(viewModel.route.buyComponents.url == nil ? 0.5 : 1.0))
-                .disabled(viewModel.route.buyComponents.url == nil)
+                toolbarButton(.buy)
+                    .foregroundColor(Color.hex3C71FF.opacity(viewModel.route.buyComponents.url == nil ? 0.5 : 1.0))
+                    .disabled(viewModel.route.buyComponents.url == nil)
                 
-                Button(action: { activeSheet = .places }) {
-                    Image(systemName: "person.2")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 24, height: 24)
-                }
-                .foregroundColor(Color.hex3C71FF)
+                toolbarButton(.places)
+                    .foregroundColor(Color.hex3C71FF)
             }
         }
         .sheet(item: $activeSheet, content: handleActionSheet)
+    }
+    
+    @ViewBuilder
+    private func toolbarButton(_ type: ActiveSheet) -> some View {
+        Button(action: {
+            activeSheet = type
+            UIDevice.vibrate(.soft)
+        }) {
+            Image(systemName: type.icon)
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 24, height: 24)
+        }
     }
     
     @ViewBuilder
@@ -122,28 +130,28 @@ struct RouteDetailView: View {
         .foregroundColor(Color.Theme.Text.secondary)
     }
     
+    @ViewBuilder
     private func footerView() -> some View {
-        buyButtonView()
-            .padding(.vertical, 16)
+        if viewModel.route.buyComponents.url != nil {
+            buyButtonView()
+                .padding(.vertical, 16)
+        }
     }
     
     private func buyButtonView() -> some View {
-        Button(action: { activeSheet = .buy }) {
-            if viewModel.route.buyComponents.url != nil {
-                Label(viewModel.route.price, systemImage: "cart")
-                    .font(.headline.bold())
-            } else {
-                Text(LocalizedStringKey(viewModel.route.buyComponents.name))
-                    .font(.headline.bold())
-            }
+        Button(action: {
+            activeSheet = .buy
+            UIDevice.vibrate(.soft)
+        }) {
+            Label(viewModel.route.price, systemImage: "cart")
+                .font(.headline.bold())
         }
         .id("bottomBuyButton")
         .frame(maxWidth: .infinity, idealHeight: 56, maxHeight: 56, alignment: .center)
-        .foregroundColor(viewModel.route.buyComponents.url != nil ? Color.hexFFFFFF : Color.hexFF364F)
-        .background(viewModel.route.buyComponents.url != nil ? Color.hex3C71FF : Color.hexF2F2F2_393F4D)
+        .foregroundColor(Color.hexFFFFFF)
+        .background(Color.hex3C71FF)
         .cornerRadius(16)
         .padding(.horizontal, 32)
-        .disabled(viewModel.route.buyComponents.url == nil)
     }
     
     private func hLineView() -> some View {

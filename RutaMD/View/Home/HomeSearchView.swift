@@ -23,10 +23,6 @@ struct HomeSearchView: View {
         }
     }
     
-    init() {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-    }
-    
     var body: some View {
         NavigationView {
             ScrollView(.vertical, showsIndicators: false) {
@@ -63,7 +59,7 @@ struct HomeSearchView: View {
                             self.routeViewModel.isActiveQuickSearch.toggle()
                         }
                     }
-                    .disabled(!routeViewModel.isValidSearch())
+                    .disabled(!routeViewModel.isValidSearch)
                 }
             }
         }

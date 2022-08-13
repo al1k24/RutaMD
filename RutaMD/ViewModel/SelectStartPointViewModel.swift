@@ -15,7 +15,13 @@ final class SelectStartPointViewModel: LoadableObject {
     private(set) var startPoints: Output = []
     
     init(startPoints: Output) {
+        LOG("* Success")
+        
         self.startPoints = startPoints
+    }
+    
+    deinit {
+        LOG("* Success")
     }
     
     func load() {

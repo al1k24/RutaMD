@@ -19,8 +19,6 @@ struct HomeSelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: Vi
     private let selectedEntity: Entity?
     
     init(viewModel: ViewModel, selectedEntity: Entity?, navigationView: Bool, onSelect: Binding<Entity?>) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self.navigationView = navigationView
         self.selectedEntity = selectedEntity
         
@@ -84,6 +82,7 @@ struct HomeSelectView<ViewModel: LoadableObject, Entity: SelectIdentifiable>: Vi
     private func handleButtonAction(_ entity: Entity) {
         if onSelect?.id != entity.id {
             onSelect = entity
+            UIDevice.vibrate(.selection)
         }
         
         dismiss()

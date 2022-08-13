@@ -20,11 +20,11 @@ final class NetworkService: NetworkServiceProtocol {
     private var dataRequest: DataRequest?
     
     init() {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+        LOG("* Success")
     }
     
     deinit {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
+        LOG("* Success")
         
         dataRequest?.cancel()
         dataRequest = nil
@@ -40,8 +40,6 @@ final class NetworkService: NetworkServiceProtocol {
             completion(.failure(.url))
             return
         }
-        
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
         dataRequest = AF.request(url, method: route.method, parameters: route.params)
             .validate()
@@ -67,8 +65,6 @@ final class NetworkService: NetworkServiceProtocol {
             completion(.failure(.url))
             return
         }
-        
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
         
         dataRequest = AF.request(url, method: route.method, parameters: route.params)
             .validate()

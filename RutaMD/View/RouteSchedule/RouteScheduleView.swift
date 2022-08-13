@@ -14,8 +14,6 @@ struct RouteScheduleView: View {
     @State private var selectedURL: URL?
     
     init(viewModel: RouteScheduleViewModel) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self._viewModel = .init(wrappedValue: viewModel)
     }
     

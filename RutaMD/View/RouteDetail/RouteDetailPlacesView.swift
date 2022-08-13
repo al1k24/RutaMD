@@ -18,8 +18,6 @@ struct RouteDetailPlacesView: View {
     ]
     
     init(viewModel: RouteDetailPlacesViewModel) {
-        print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)")
-        
         self._viewModel = .init(wrappedValue: viewModel)
     }
     

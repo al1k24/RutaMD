@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
-    init() { print("[\(Date().formatted(date: .omitted, time: .standard))] \(Self.self): \(#function)") }
+    init() {
+        LOG("* Success")
+    }
     
     var body: some View {
         Text("Settings View")
