@@ -29,3 +29,8 @@
 "сlose" = "Закрыть";
 "buy" = "Купить";
 "canceled" = "Отменён";
+"all_stations_of_the_route" = "Все станции маршрута";
+"please_select_a_location" = "Пожалуйста, выберите местоположение";
+"please_select_a_direction" = "Пожалуйста, выберите направление";
+"please_select_a_date" = "Пожалуйста, выберите дату";
+"no_data" = "Нет данных";

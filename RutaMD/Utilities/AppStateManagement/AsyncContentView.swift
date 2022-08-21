@@ -27,13 +27,12 @@ struct AsyncContentView<ViewModel: LoadableObject, Content: View>: View {
     private func contentView() -> some View {
         switch viewModel.state {
         case .idle:
-            Color.clear.onAppear(perform: viewModel.load)
+            Color.clear
+                .onAppear(perform: viewModel.load)
         case .loading:
             ProgressView()
-            // TODO: Add shimmer effect. Отображать в зависимости от типа страницы
         case .failed(let error):
-            Text("* Error: \(error.errorDescription)")
-//            ErrorView(error: error, retryHandler: source.load)
+            Text(LocalizedStringKey(error.localizedKey))
         case .loaded(let output):
             content(output)
         }

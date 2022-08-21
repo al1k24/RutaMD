@@ -9,10 +9,10 @@ import Foundation
 
 extension Array {
     subscript(safe index: Int) -> Element? {
-        if index < self.count {
-            return self[index]
-        } else {
+        guard index >= 0, index < self.count else {
             return nil
         }
+        
+        return self[index]
     }
 }

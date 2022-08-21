@@ -1,0 +1,11 @@
+{
+	"type": "success",
+	"content": [
+		{
+			"NAME": "Buckingham Palace",
+			"ADDRESS": "Where Queen Elizabeth lives with her dorgis",
+            "PHONE": null,
+            "COORDINATE": [46.998159, 28.801910]
+		}
+	]
+}

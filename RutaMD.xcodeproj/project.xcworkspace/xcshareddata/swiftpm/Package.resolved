@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "swift-html-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/rnantes/swift-html-parser.git",
+      "state" : {
+        "revision" : "fdc7c20fe62c0a0a846cca05f89fd3dc0fe6112a",
+        "version" : "1.0.0"
+      }
+    },
+    {
       "identity" : "swiftyjson",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/SwiftyJSON/SwiftyJSON.git",

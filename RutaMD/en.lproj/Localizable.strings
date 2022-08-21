@@ -29,3 +29,8 @@
 "сlose" = "Close";
 "buy" = "Buy";
 "canceled" = "Canceled";
+"all_stations_of_the_route" = "All stations of the route";
+"please_select_a_location" = "Please select a location";
+"please_select_a_direction" = "Please select a direction";
+"please_select_a_date" = "Please select a date";
+"no_data" = "No data";

@@ -29,3 +29,8 @@
 "сlose" = "Închide";
 "buy" = "Cumpără";
 "canceled" = "Anulat";
+"all_stations_of_the_route" = "Toate stațiile traseului";
+"please_select_a_location" = "Vă rugăm să selectați locația";
+"please_select_a_direction" = "Vă rugăm să selectați direcția";
+"please_select_a_date" = "Vă rugăm să selectați data";
+"no_data" = "Nu există date";
