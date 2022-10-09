@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  RutaMD
+
+  Created by Alik Moldovanu on 02.06.2022.
+  
+*/
+
+"last_routes" = "Последние маршруты";
+"moldova_route_schedule" = "Расписание маршрутов из Молдовы";
+"whence" = "Откуда";
+"location" = "Локация";
+"direction" = "Направление";
+"date" = "Дата";
+"routes_search" = "ПОИСК МАРШРУТОВ";
+"choose_the_location" = "Выбери локацию";
+"choose_the_direction" = "Выбери направление";
+"choose_a_date" = "Выбери дату";
+"configuration" = "Конфигурация";
+"cancel" = "Отмена";
+"search" = "Поиск";
+"routes" = "Маршруты";
+"route_%@" = "Маршрут #%@";
+"leaving" = "Выезд";
+"information" = "Информация";
+"from" = "Из";
+"to" = "В";
+"available_seats" = "Доступные места";
+"сlose" = "Закрыть";
+"buy" = "Купить";
+"canceled" = "Отменён";
+"all_stations_of_the_route" = "Все станции маршрута";
+"please_select_a_location" = "Пожалуйста, выберите местоположение";
+"please_select_a_direction" = "Пожалуйста, выберите направление";
+"please_select_a_date" = "Пожалуйста, выберите дату";
+"no_data" = "Нет данных";

@@ -1,0 +1,241 @@
+{
+	"type": "success",
+	"content": [
+		{
+			"COD": "00-000018",
+			"TITLE": "BALTI"
+		},
+        {
+            "COD": "00-000006",
+            "TITLE": "BASARABEASCA"
+        },
+        {
+            "COD": "00-000157",
+            "TITLE": "BRASOV (ROM) (BRASOV (ROM))"
+        },
+        {
+            "COD": "00-000029",
+            "TITLE": "BRICENI"
+        },
+        {
+            "COD": "00-000043",
+            "TITLE": "BUCURESTI (ROM)"
+        },
+        {
+            "COD": "00-000022",
+            "TITLE": "CAHUL"
+        },
+        {
+            "COD": "00-000039",
+            "TITLE": "CAHUL  (PC mag. BUSUIOC)"
+        },
+        {
+            "COD": "00-000010",
+            "TITLE": "CALARASI"
+        },
+        {
+            "COD": "00-003053",
+            "TITLE": "CALUS retur (CALUS retur)"
+        },
+        {
+            "COD": "00-000007",
+            "TITLE": "CANTEMIR"
+        },
+        {
+            "COD": "00-000026",
+            "TITLE": "CAUSENI"
+        },
+        {
+            "COD": "00-000031",
+            "TITLE": "CEADIR-LUNGA"
+        },
+        {
+            "COD": "00-003058",
+            "TITLE": "CERNAUTI retur (CERNAUTI retur)"
+        },
+        {
+            "COD": "00-000003",
+            "TITLE": "CHISINAU SUBURBAN"
+        },
+        {
+            "COD": "00-000009",
+            "TITLE": "CIMISLIA"
+        },
+        {
+            "COD": "00-000044",
+            "TITLE": "CLUJ NAPOCA (ROM) (CLUJ NAPOCA (ROM))"
+        },
+        {
+            "COD": "00-003056",
+            "TITLE": "COLOMAIA retur (COLOMAIA retur)"
+        },
+        {
+            "COD": "00-000012",
+            "TITLE": "COMRAT"
+        },
+        {
+            "COD": "00-000037",
+            "TITLE": "CONGAZ"
+        },
+        {
+            "COD": "00-000040",
+            "TITLE": "COPCEAC (Ceadir-Lunga)"
+        },
+        {
+            "COD": "00-000038",
+            "TITLE": "CUPCINI"
+        },
+        {
+            "COD": "00-003063",
+            "TITLE": "DNEPROPETROVSK (UA) (DNEPR retur)"
+        },
+        {
+            "COD": "00-003052",
+            "TITLE": "DOLINA retur (DOLINA retur)"
+        },
+        {
+            "COD": "00-000016",
+            "TITLE": "DONDUSENI"
+        },
+        {
+            "COD": "00-000017",
+            "TITLE": "DROCHIA"
+        },
+        {
+            "COD": "00-000027",
+            "TITLE": "EDINET"
+        },
+        {
+            "COD": "00-000034",
+            "TITLE": "EDINET PC"
+        },
+        {
+            "COD": "00-000008",
+            "TITLE": "FALESTI"
+        },
+        {
+            "COD": "00-000023",
+            "TITLE": "FLORESTI"
+        },
+        {
+            "COD": "00-000001",
+            "TITLE": "Chisinau (GARA CHISINAU CENTRU)"
+        },
+        {
+            "COD": "00-000002",
+            "TITLE": "Chisinau (GARA de SUD)"
+        },
+        {
+            "COD": "00-000035",
+            "TITLE": "GARA FEROVIARA GSA"
+        },
+        {
+            "COD": "00-000005",
+            "TITLE": "GARA IALOVENI"
+        },
+        {
+            "COD": "00-000004",
+            "TITLE": "Chisinau (GARA NORD)"
+        },
+        {
+            "COD": "00-000025",
+            "TITLE": "GLODENI"
+        },
+        {
+            "COD": "00-003062",
+            "TITLE": "HARKOV rerur (HARKOV rerur)"
+        },
+        {
+            "COD": "00-000011",
+            "TITLE": "HINCESTI"
+        },
+        {
+            "COD": "00-000045",
+            "TITLE": "IASI (ROM)"
+        },
+        {
+            "COD": "00-003055",
+            "TITLE": "IV-FRANKOVSK retur (IV-FRANKOVSK retur)"
+        },
+        {
+            "COD": "00-003061",
+            "TITLE": "KIEV retur (KIEV retur)"
+        },
+        {
+            "COD": "00-003064",
+            "TITLE": "KRIVOI ROG (UA) (KRIVOI ROG retur)"
+        },
+        {
+            "COD": "00-000024",
+            "TITLE": "LEOVA"
+        },
+        {
+            "COD": "00-000014",
+            "TITLE": "LIPCANI"
+        },
+        {
+            "COD": "00-003060",
+            "TITLE": "LVOV retur (LVOV retur)"
+        },
+        {
+            "COD": "00-000030",
+            "TITLE": "OCNITA"
+        },
+        {
+            "COD": "00-000020",
+            "TITLE": "ORHEI"
+        },
+        {
+            "COD": "00-000013",
+            "TITLE": "OTACI"
+        },
+        {
+            "COD": "00-000047",
+            "TITLE": "OTOPENI (Aeroport) (ROM) (OTOPENI (Aeroport) (ROM))"
+        },
+        {
+            "COD": "00-000021",
+            "TITLE": "RISCANI"
+        },
+        {
+            "COD": "00-001166",
+            "TITLE": "SIBIU (ROM) (SIBIU (ROM))"
+        },
+        {
+            "COD": "00-003057",
+            "TITLE": "SNEATIN retur (SNEATIN retur)"
+        },
+        {
+            "COD": "00-000019",
+            "TITLE": "SOROCA"
+        },
+        {
+            "COD": "00-000015",
+            "TITLE": "STEFAN-VODA"
+        },
+        {
+            "COD": "00-000042",
+            "TITLE": "STRASENI GARA"
+        },
+        {
+            "COD": "00-003051",
+            "TITLE": "STRII retur (STRII retur)"
+        },
+        {
+            "COD": "00-000032",
+            "TITLE": "TARACLIA"
+        },
+        {
+            "COD": "00-003014",
+            "TITLE": "TRUSCAVET retur (TRUSCAVET retur)"
+        },
+        {
+            "COD": "00-000033",
+            "TITLE": "UNGHENI"
+        },
+        {
+            "COD": "00-000028",
+            "TITLE": "VULCANESTI"
+        }
+	]
+}

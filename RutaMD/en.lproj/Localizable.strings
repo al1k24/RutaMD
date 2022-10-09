@@ -1,0 +1,36 @@
+/* 
+  Localizable.strings
+  RutaMD
+
+  Created by Alik Moldovanu on 02.06.2022.
+  
+*/
+
+"last_routes" = "The last routes";
+"moldova_route_schedule" = "Schedule of routes from Moldova";
+"whence" = "De unde";
+"location" = "Location";
+"direction" = "Direction";
+"date" = "Date";
+"routes_search" = "ROUTES SEARCH";
+"choose_the_location" = "Choose the location";
+"choose_the_direction" = "Choose the direction";
+"choose_a_date" = "Choose a date";
+"configuration" = "Configuration";
+"cancel" = "Cancel";
+"search" = "Search";
+"routes" = "Routes";
+"route_%@" = "Route #%@";
+"leaving" = "Leaving";
+"information" = "Information";
+"from" = "From";
+"to" = "To";
+"available_seats" = "Available seats";
+"сlose" = "Close";
+"buy" = "Buy";
+"canceled" = "Canceled";
+"all_stations_of_the_route" = "All stations of the route";
+"please_select_a_location" = "Please select a location";
+"please_select_a_direction" = "Please select a direction";
+"please_select_a_date" = "Please select a date";
+"no_data" = "No data";
