@@ -46,8 +46,8 @@ struct TestView: View {
                 HStack(alignment: .center, spacing: 0) {
                     Image(systemName: "bus.fill")
                         .resizable()
-                        .frame(width: 25, height: 25, alignment: .center)
-                        .padding(12)
+                        .frame(width: 20, height: 20, alignment: .center)
+                        .padding(8)
                         .background(Color.Theme.background)
                         .overlay(with: .circle)
                         .foregroundColor(Color.hex3C71FF)

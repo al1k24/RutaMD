@@ -8,9 +8,7 @@
 import SwiftUI
 
 final class PlacesViewModel: LoadableObject {
-    typealias Output = [RouteDetailModel.Place]
-    
-    @Published private(set) var state = LoadingState<Output>.idle
+    @Published private(set) var state = LoadingState<[RouteDetailModel.Place]>.idle
     
     private let route: RouteModel
     private let station: StationModel?

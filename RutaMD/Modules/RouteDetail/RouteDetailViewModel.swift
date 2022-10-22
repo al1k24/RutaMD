@@ -8,9 +8,7 @@
 import SwiftUI
 
 final class RouteDetailViewModel: LoadableObject {
-    typealias Output = RouteDetailModel
-    
-    @Published private(set) var state = LoadingState<Output>.idle
+    @Published private(set) var state = LoadingState<RouteDetailModel>.idle
     
     private(set) var route: RouteModel
     private(set) var routeDetail: RouteDetailModel

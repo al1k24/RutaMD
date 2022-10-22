@@ -8,18 +8,16 @@
 import SwiftUI
 
 final class SelectDateViewModel: LoadableObject {
-    typealias Output = [DateModel]
+    @Published private(set) var state = LoadingState<[DateModel]>.idle
     
-    @Published private(set) var state = LoadingState<Output>.idle
-    
-    @Binding private(set) var dates: Output
+    @Binding private(set) var dates: [DateModel]
     
     private let station: StationModel?
     private let startPoint: StationModel?
     
     private var networkService: NetworkServiceProtocol
     
-    init(startPoint: StationModel?, station: StationModel?, dates: Binding<Output>) {
+    init(startPoint: StationModel?, station: StationModel?, dates: Binding<[DateModel]>) {
         DEBUG("* Success")
         
         self.startPoint = startPoint

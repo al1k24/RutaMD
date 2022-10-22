@@ -8,13 +8,11 @@
 import SwiftUI
 
 final class SelectStartPointViewModel: LoadableObject {
-    typealias Output = [StationModel]
+    @Published private(set) var state = LoadingState<[StationModel]>.idle
     
-    @Published private(set) var state = LoadingState<Output>.idle
+    private(set) var startPoints: [StationModel] = []
     
-    private(set) var startPoints: Output = []
-    
-    init(startPoints: Output) {
+    init(startPoints: [StationModel]) {
         DEBUG("* Success")
         
         self.startPoints = startPoints

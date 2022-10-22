@@ -8,15 +8,13 @@
 import SwiftUI
 
 final class SelectStationViewModel: LoadableObject {
-    typealias Output = [StationModel]
-    
-    @Binding private(set) var stations: Output
-    @Published private(set) var state = LoadingState<Output>.idle
+    @Binding private(set) var stations: [StationModel]
+    @Published private(set) var state = LoadingState<[StationModel]>.idle
     
     private let startPoint: StationModel?
     private var networkService: NetworkServiceProtocol
     
-    init(startPoint: StationModel?, stations: Binding<Output>) {
+    init(startPoint: StationModel?, stations: Binding<[StationModel]>) {
         DEBUG("* Success")
         
         self.startPoint = startPoint

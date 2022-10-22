@@ -7,12 +7,8 @@
 
 import SwiftUI
 
-// TODO: После деините убивать все активные запросы
-
 final class RouteScheduleViewModel: LoadableObject {
-    typealias Output = [RouteModel]
-    
-    @Published private(set) var state = LoadingState<Output>.idle
+    @Published private(set) var state = LoadingState<[RouteModel]>.idle
     
     private let startPoint: StationModel?
     private let station: StationModel?

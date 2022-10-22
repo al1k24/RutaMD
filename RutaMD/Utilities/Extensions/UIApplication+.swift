@@ -19,4 +19,16 @@ extension UIApplication {
     func endEditing(_ force: Bool) {
         scene?.windows.first?.endEditing(force)
     }
+    
+    func getRootViewController() -> UIViewController {
+        guard let screen = self.connectedScenes.first as? UIWindowScene else {
+            return .init()
+        }
+        
+        guard let root = screen.windows.last?.rootViewController else {
+            return .init()
+        }
+        
+        return root
+    }
 }

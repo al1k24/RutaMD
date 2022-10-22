@@ -13,6 +13,8 @@
 		183EAE1C283EB72800732D9E /* SFSafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE1B283EB72800732D9E /* SFSafariView.swift */; };
 		183EAE1F283EBDC700732D9E /* URL+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE1E283EBDC700732D9E /* URL+Identifiable.swift */; };
 		183EAE21283ED0AE00732D9E /* String+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EAE20283ED0AE00732D9E /* String+URL.swift */; };
+		1842E95E28B8ED160018B5B2 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 1842E95D28B8ED160018B5B2 /* GoogleMobileAds */; };
+		1842E96028B8F0FC0018B5B2 /* BannerAdView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1842E95F28B8F0FC0018B5B2 /* BannerAdView.swift */; };
 		184791B228A7D02B0053FD94 /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = 184791B128A7D02B0053FD94 /* SwiftyJSON */; };
 		184791B728A7DC5F0053FD94 /* UIDevice+Vibration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184791B628A7DC5F0053FD94 /* UIDevice+Vibration.swift */; };
 		184791BA28A828530053FD94 /* StationLocationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184791B928A828530053FD94 /* StationLocationsView.swift */; };
@@ -106,6 +108,7 @@
 		183EAE1B283EB72800732D9E /* SFSafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSafariView.swift; sourceTree = "<group>"; };
 		183EAE1E283EBDC700732D9E /* URL+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Identifiable.swift"; sourceTree = "<group>"; };
 		183EAE20283ED0AE00732D9E /* String+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+URL.swift"; sourceTree = "<group>"; };
+		1842E95F28B8F0FC0018B5B2 /* BannerAdView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerAdView.swift; sourceTree = "<group>"; };
 		184791B628A7DC5F0053FD94 /* UIDevice+Vibration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Vibration.swift"; sourceTree = "<group>"; };
 		184791B928A828530053FD94 /* StationLocationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationLocationsView.swift; sourceTree = "<group>"; };
 		184791BE28A82F890053FD94 /* locations.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = locations.json; path = SwiftHTMLParser/locations.json; sourceTree = "<group>"; };
@@ -199,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1842E95E28B8ED160018B5B2 /* GoogleMobileAds in Frameworks */,
 				18E77DA128B29401009A2EBA /* Alamofire in Frameworks */,
 				184791B228A7D02B0053FD94 /* SwiftyJSON in Frameworks */,
 				184791D728A84E8F0053FD94 /* SwiftHTMLParser in Frameworks */,
@@ -379,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				18CCB8EF281E9D3A00EE8918 /* LazyView.swift */,
+				1842E95F28B8F0FC0018B5B2 /* BannerAdView.swift */,
 				18CCB8EA281E94AD00EE8918 /* CustomTabView.swift */,
 				18CCB8EC281E964600EE8918 /* CustomTabBarView.swift */,
 				1874722B2823147700A5E188 /* SeparatorView.swift */,
@@ -572,6 +577,7 @@
 				184791B128A7D02B0053FD94 /* SwiftyJSON */,
 				184791D628A84E8F0053FD94 /* SwiftHTMLParser */,
 				18E77DA028B29401009A2EBA /* Alamofire */,
+				1842E95D28B8ED160018B5B2 /* GoogleMobileAds */,
 			);
 			productName = RutaMD;
 			productReference = 1848CC3C279C592A00D1E91A /* RutaMD.app */;
@@ -607,6 +613,7 @@
 				184791B028A7D02B0053FD94 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				184791D528A84E8F0053FD94 /* XCRemoteSwiftPackageReference "swift-html-parser" */,
 				18E77D9F28B29400009A2EBA /* XCRemoteSwiftPackageReference "Alamofire" */,
+				1842E95C28B8ED160018B5B2 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 1848CC3D279C592A00D1E91A /* Products */;
 			projectDirPath = "";
@@ -655,6 +662,7 @@
 				183EAE1A283EA3C400732D9E /* AppDelegate.swift in Sources */,
 				184791DE28A8FFD90053FD94 /* ErrorView.swift in Sources */,
 				1874722C2823147700A5E188 /* SeparatorView.swift in Sources */,
+				1842E96028B8F0FC0018B5B2 /* BannerAdView.swift in Sources */,
 				18D476FF280F40F400BB08F8 /* AsyncContentView.swift in Sources */,
 				18CCB8F0281E9D3A00EE8918 /* LazyView.swift in Sources */,
 				187472222821792800A5E188 /* RouteScheduleView+HeaderView.swift in Sources */,
@@ -880,6 +888,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = md.alik.RutaMD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -912,6 +921,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = md.alik.RutaMD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -944,6 +954,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		1842E95C28B8ED160018B5B2 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		184791B028A7D02B0053FD94 /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
@@ -971,6 +989,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		1842E95D28B8ED160018B5B2 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1842E95C28B8ED160018B5B2 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
 		184791B128A7D02B0053FD94 /* SwiftyJSON */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 184791B028A7D02B0053FD94 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;

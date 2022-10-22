@@ -27,6 +27,14 @@ struct RouteScheduleView: View {
                     CellView(routeModel: entity, selectedURL: $selectedURL)
                         .navigationLink({ destinationView(route: entity) })
                         .listRow()
+                    
+                    BannerAdView(unitID: "ca-app-pub-3940256099942544/2934735716")
+                        .listRowSeparator(.hidden)
+                        .listRowBackground(Color.Theme.background)
+                        .frame(height: 50, alignment: .center)
+                        .padding(.horizontal, 16)
+//                        .listRow()
+//                        .frame(minHeight: 50, maxHeight: 80)
                 }
                 .listStyle()
             }
