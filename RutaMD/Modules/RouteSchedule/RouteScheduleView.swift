@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIKit
 
 struct RouteScheduleView: View {
     @EnvironmentObject private var routeViewModel: RouteViewModel
@@ -25,7 +26,7 @@ struct RouteScheduleView: View {
             AsyncContentView(viewModel: viewModel) { (routes: [RouteModel]) in
                 List(routes, id: \.id) { entity in
                     CellView(routeModel: entity, selectedURL: $selectedURL)
-                        .navigationLink({ destinationView(route: entity) })
+                        .navigationLink(destination: { destinationView(route: entity) })
                         .listRow()
                 }
                 .listStyle()

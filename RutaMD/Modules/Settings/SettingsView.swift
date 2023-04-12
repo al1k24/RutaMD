@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIKit
 
 struct SettingsView: View {
     init() {

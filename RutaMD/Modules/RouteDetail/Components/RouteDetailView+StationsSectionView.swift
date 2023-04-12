@@ -37,8 +37,8 @@ extension RouteDetailView {
                 .frame(maxWidth: .infinity, alignment: .center)
                 .foregroundColor(Color.Theme.Text.secondary)
                 
-            ForEach(routeDetail.stations, id: \.id) {
-                CellView(station: $0, isLast: $0.id == lastStationId)
+            ForEach(routeDetail.stations, id: \.id) { station in
+                CellView(station: station, isLast: station.id == lastStationId)
             }
         }
         

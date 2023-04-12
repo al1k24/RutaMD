@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIKit
 
 final class PlacesViewModel: LoadableObject {
     typealias Output = [RouteDetailModel.Place]

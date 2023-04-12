@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftUIKit
 
 final class RouteDetailViewModel: LoadableObject {
     typealias Output = RouteDetailModel
@@ -35,36 +36,45 @@ final class RouteDetailViewModel: LoadableObject {
     func load() {
         state = .loading
         
-        let route = API.Station.getRouteDetail(route: route.components.route,
-                                               date: route.components.date.toAPI(),
-                                               routeCode: route.components.routeCode)
+        let route = API.Station.getRouteDetail(
+            route: route.components.route,
+            date: route.components.date.toAPI(),
+            routeCode: route.components.routeCode
+        )
+        
         networkService.request(route: route) { [weak self] (result: Result<Data, NetworkError>) in
             switch result {
             case .success(let data):
-                self?.htmlContentService.parse(from: data) { [weak self] (result: Result<[RouteDetailModel.Station], NetworkError>) in
-                    guard let self = self else {
-                        self?.state = .failed(.custom("* Weak self"))
-                        return
-                    }
-                    
-                    switch result {
-                    case .success(let stations):
-                        if self.routeDetail.stations.isEmpty && stations.isEmpty {
-                            self.state = .failed(.custom("Empty data"))
-                            return
-                        }
-                        
-                        if !stations.isEmpty {
-                            self.routeDetail = .init(id: self.route.id, name: self.route.name, stations: stations)
-                        }
-                        
-                        self.state = .loaded(self.routeDetail)
-                    case .failure(let error):
-                        self.state = .failed(error)
-                    }
-                }
+                self?.parseHTML(from: data)
             case .failure(let error):
                 self?.state = .failed(error)
+            }
+        }
+    }
+    
+    private func parseHTML(from data: Data) {
+        htmlContentService.parse(
+            from: data
+        ) { [weak self] (result: Result<[RouteDetailModel.Station], NetworkError>) in
+            guard let self = self else {
+                self?.state = .failed(.custom("* Weak self"))
+                return
+            }
+            
+            switch result {
+            case .success(let stations):
+                if self.routeDetail.stations.isEmpty && stations.isEmpty {
+                    self.state = .failed(.custom("Empty data"))
+                    return
+                }
+                
+                if !stations.isEmpty {
+                    self.routeDetail = .init(id: self.route.id, name: self.route.name, stations: stations)
+                }
+                
+                self.state = .loaded(self.routeDetail)
+            case .failure(let error):
+                self.state = .failed(error)
             }
         }
     }

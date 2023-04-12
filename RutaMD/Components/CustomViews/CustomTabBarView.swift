@@ -18,15 +18,13 @@ struct CustomTabBarView: View {
                         .renderingMode(.template)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 30, height: 30)
+                        .frame(width: 24, height: 24)
                         .frame(maxWidth: .infinity)
                         .foregroundColor(currentTab == tab ? Color.hex3C71FF : Color.hex777E90_A6A7BC)
                 }
             }
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 30)
-        .padding(.bottom, 10)
-        .padding([.horizontal, .top])
+        .padding(.vertical, 16)
     }
 }

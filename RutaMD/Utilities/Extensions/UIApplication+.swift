@@ -8,15 +8,7 @@
 import SwiftUI
 
 extension UIApplication {
-    var scene: UIWindowScene? {
-        return UIApplication.shared.connectedScenes.first as? UIWindowScene
-    }
-    
-    var safeArea: UIEdgeInsets {
-        return scene?.windows.first?.safeAreaInsets ?? .zero
-    }
-    
     func endEditing(_ force: Bool) {
-        scene?.windows.first?.endEditing(force)
+        getKeyWindow()?.endEditing(force)
     }
 }
